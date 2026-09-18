@@ -19,10 +19,8 @@ import {
   ExternalLink
 } from 'lucide-react';
 import dsm5Data from '../data/dsm5Criteria.json';
-import { useProvider } from '../../../context/ProviderContext';
 
 export default function Dsm5Checklists() {
-  const { profile } = useProvider();
   const [selectedDisorderId, setSelectedDisorderId] = useState('adhd');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
@@ -324,13 +322,13 @@ export default function Dsm5Checklists() {
             <div className="flex items-center gap-3">
               <img 
                 src="./icon-192.png" 
-                alt="PsynapseCDS Platform Logo" 
+                alt="PsyNurse Clinic Logo" 
                 className="w-12 h-12 object-contain" 
               />
               <div>
-                <h1 className="text-xl font-black text-slate-900 tracking-tight">{profile.practiceName?.toUpperCase() || 'PSYCHIATRIC PRACTICE & CLINICAL SERVICES'}</h1>
-                <p className="text-xs font-bold text-teal-800">{profile.name}{profile.credentials ? `, ${profile.credentials}` : ''}</p>
-                <p className="text-[10px] text-slate-500">Practice State: {profile.state || 'Licensed'} • Electronic Decision Support (PsynapseCDS)</p>
+                <h1 className="text-xl font-black text-slate-900 tracking-tight">PSYCHIATRIC NURSE PRACTITIONER SERVICES</h1>
+                <p className="text-xs font-bold text-teal-800">Monica Preder, MSN, APRN, PMHNP-BC • Board Certified Psychiatric Nurse Practitioner</p>
+                <p className="text-[10px] text-slate-500">Telehealth Practice: Washington State • Web: psychiatristnurse.com</p>
               </div>
             </div>
             <div className="text-right text-[11px] text-slate-600">

@@ -29,7 +29,7 @@ export default function HpiBuilder({ setActiveTab }) {
 
   const handleAuditWithAi = () => {
     try {
-      sessionStorage.setItem('psynapse_audit_draft', synthesizedHpi);
+      sessionStorage.setItem('psynurse_audit_draft', synthesizedHpi);
     } catch {
       // ignore
     }

@@ -21,13 +21,13 @@ export default function Navbar({ activeTab, setActiveTab }) {
           <div className="flex items-center gap-3 flex-shrink-0">
             <img 
               src="./icon-192.png" 
-              alt="PsynapseCDS Logo" 
+              alt="PsyNurse CDS Logo" 
               className="w-10 h-10 object-contain rounded-xl shadow-xs flex-shrink-0 bg-white p-0.5 border border-slate-200/80" 
             />
             <div className="flex flex-col justify-center">
               <div className="flex items-center gap-2">
                 <span className="font-extrabold text-slate-900 text-base leading-none tracking-tight">
-                  PsynapseCDS
+                  PsyNurse CDS
                 </span>
                 <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
                   <ShieldCheck className="w-3 h-3 text-emerald-600" />
@@ -35,7 +35,7 @@ export default function Navbar({ activeTab, setActiveTab }) {
                 </span>
               </div>
               <span className="text-[11px] text-slate-500 font-medium leading-normal mt-0.5 whitespace-nowrap">
-                Precision Psychiatric Clinical Decision Support
+                Clinical Decision Support • Monica Preder, ARNP
               </span>
             </div>
           </div>
