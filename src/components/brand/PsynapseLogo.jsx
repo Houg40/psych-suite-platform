@@ -28,9 +28,7 @@ export default function PsynapseLogo({
       <img
         src="./psynapse-logo.png"
         alt={alt}
-        className={`${hClass} w-auto object-contain ${
-          isDark ? 'brightness-0 invert' : ''
-        }`}
+        className={`${hClass} w-auto object-contain`}
       />
     </div>
   );
