@@ -97,7 +97,7 @@ function SuiteContent() {
       <footer className="bg-slate-900 border-t border-slate-800 py-6 text-center text-xs text-slate-400 print:hidden">
         <div className="max-w-7xl mx-auto px-4 space-y-1.5">
           <p className="font-bold text-slate-300">
-            {profile.practiceName || 'PsychSuite Platform'} • Unified Practice Decision Support &amp; Simulation Labs
+            {profile.practiceName || 'PsynapseCDS Platform'} • Precision Psychiatric Decision Support &amp; Simulation Labs
           </p>
           <p className="text-slate-500 text-[11px]">
             Zero-PHI Client-Side Architecture • Configured for {profile.name}, {profile.credentials} • {profile.state} Practice

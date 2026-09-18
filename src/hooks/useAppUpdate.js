@@ -52,7 +52,7 @@ export function useAppUpdate() {
         });
       })
       .catch((err) => {
-        console.warn('PsyNurse ServiceWorker registration skipped/failed:', err);
+        console.warn('PsynapseCDS ServiceWorker registration skipped/failed:', err);
       });
 
     return () => {

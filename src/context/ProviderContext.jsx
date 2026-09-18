@@ -1,10 +1,10 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const DEFAULT_PROFILE = {
-  name: 'Monica Preder',
-  credentials: 'MSN, APRN, PMHNP-BC',
-  practiceName: 'Psychiatry & Behavioral Health',
-  specialty: 'Adult & Adolescent Psychiatric Telehealth',
+  name: 'Clinical Prescriber',
+  credentials: 'MD / DO / PMHNP / PA-C',
+  practiceName: 'Psychiatric Practice',
+  specialty: 'Adult & Adolescent Psychiatry',
   state: 'Washington',
   stateCode: 'WA',
   npi: '',
@@ -14,7 +14,7 @@ const DEFAULT_PROFILE = {
   customDisclaimers: ''
 };
 
-const STORAGE_KEY = 'psych_suite_provider_profile';
+const STORAGE_KEY = 'psynapse_cds_provider_profile';
 
 const ProviderContext = createContext({
   profile: DEFAULT_PROFILE,

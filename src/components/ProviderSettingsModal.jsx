@@ -72,7 +72,7 @@ export default function ProviderSettingsModal({ isOpen, onClose }) {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                placeholder="e.g. Monica Preder"
+                placeholder="e.g. Dr. Jordan Hayes / Alex Rivera"
                 className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl font-semibold text-slate-900 focus:bg-white focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 focus:outline-none transition-all"
                 required
               />
@@ -88,7 +88,7 @@ export default function ProviderSettingsModal({ isOpen, onClose }) {
                 name="credentials"
                 value={formData.credentials}
                 onChange={handleChange}
-                placeholder="e.g. MSN, APRN, PMHNP-BC / MD"
+                placeholder="e.g. MD, DO, PMHNP-BC, or PA-C"
                 className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl font-semibold text-slate-900 focus:bg-white focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 focus:outline-none transition-all"
                 required
               />

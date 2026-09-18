@@ -1,4 +1,4 @@
-const CACHE_NAME = 'psynurse-clinical-suite-v1.1.0';
+const CACHE_NAME = 'psynapse-cds-platform-v1.0.0';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',

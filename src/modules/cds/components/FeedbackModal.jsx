@@ -121,7 +121,7 @@ export default function FeedbackModal({ currentTab }) {
           'Accept': 'application/json'
         },
         body: JSON.stringify({
-          _subject: `PsyNurse CDS Feedback: ${feedbackType} (${currentTabName})`,
+          _subject: `PsynapseCDS Feedback: ${feedbackType} (${currentTabName})`,
           FeedbackType: feedbackType,
           ScreenContext: currentTabName,
           ProviderNotes: message,

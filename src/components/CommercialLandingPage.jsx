@@ -31,8 +31,8 @@ export default function CommercialLandingPage({ onLaunchSuite }) {
               <HeartPulse className="w-5 h-5" />
             </div>
             <div>
-              <span className="font-black text-base text-white tracking-tight">PsychSuite</span>
-              <span className="text-teal-400 font-bold ml-1 text-xs">Platform</span>
+              <span className="font-black text-base text-white tracking-tight">Psynapse</span>
+              <span className="text-teal-400 font-black ml-0.5 text-xs">CDS</span>
             </div>
           </div>
 
@@ -112,7 +112,7 @@ export default function CommercialLandingPage({ onLaunchSuite }) {
             5 Essential Engines Built for High-Risk Prescribing
           </h2>
           <p className="text-xs sm:text-sm text-slate-400">
-            Standard EHRs only store data. PsychSuite does the clinical calculations, criteria verification, and safety checks for you.
+            Standard EHRs only store data. PsynapseCDS does the clinical calculations, criteria verification, and safety checks for you.
           </p>
         </div>
 
@@ -310,7 +310,7 @@ export default function CommercialLandingPage({ onLaunchSuite }) {
       {/* Footer */}
       <footer className="border-t border-slate-900 py-8 text-center text-xs text-slate-500">
         <p className="font-bold text-slate-400">
-          PsychSuite Platform • Built for High-Volume Psychiatric Decision Support
+          PsynapseCDS Platform • Precision Psychiatric Clinical Decision Support &amp; Simulation
         </p>
         <p className="text-[11px] text-slate-600 mt-1">
           Complies with Section 3060(a) 21st Century Cures Act Non-Device CDS Guidelines.

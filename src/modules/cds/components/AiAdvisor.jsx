@@ -25,8 +25,10 @@ import {
   CheckCircle2
 } from 'lucide-react';
 import { auditEvaluation, generateEhrAuditAddendum, SAMPLE_EVALUATIONS } from '../utils/evaluationAuditor';
+import { useProvider } from '../../../context/ProviderContext';
 
 export default function AiAdvisor({ setActiveTab }) {
+  const { profile } = useProvider();
   const [activeTool, setActiveTool] = useState('eval-audit'); // 'eval-audit' | 'suite-tweak' | 'prior-auth' | 'differential' | 'psychoeducation' | 'consult'
   const [copied, setCopied] = useState(false);
 
@@ -39,9 +41,10 @@ export default function AiAdvisor({ setActiveTab }) {
   // Load queued HPI note from sessionStorage if navigated from HpiBuilder
   useEffect(() => {
     try {
-      const queuedNote = sessionStorage.getItem('psynurse_audit_draft');
+      const queuedNote = sessionStorage.getItem('psynapse_audit_draft') || sessionStorage.getItem('psynurse_audit_draft');
       if (queuedNote) {
         setEvalInput(queuedNote);
+        sessionStorage.removeItem('psynapse_audit_draft');
         sessionStorage.removeItem('psynurse_audit_draft');
         setActiveTool('eval-audit');
         const res = auditEvaluation(queuedNote);
@@ -114,7 +117,7 @@ export default function AiAdvisor({ setActiveTab }) {
   const [consultMessages, setConsultMessages] = useState([
     {
       role: 'assistant',
-      text: 'Hello Monica. I am your PsyNurse Clinical Preceptor. How can I assist with case formulation, titration strategy, or defensible documentation today?'
+      text: 'Hello. I am your Psynapse Clinical Preceptor. How can I assist with case formulation, titration strategy, or defensible documentation today?'
     }
   ]);
 
@@ -202,10 +205,10 @@ Board-Certified Psychiatric Mental Health Nurse Practitioner`;
     }
 
     const handout = `PATIENT MEDICATION GUIDE: ${details.name.toUpperCase()}
-Provided by: Monica Preder, ARNP, PMHNP-BC • PsyNurse Telepsychiatry
+Provided by: ${profile.name || 'Clinical Prescriber'}${profile.credentials ? ', ' + profile.credentials : ''} • ${profile.practiceName || 'Psychiatric Practice'}
 Prescribed For: ${eduIndication}
 
-1. WHY MONICA PRESCRIBED THIS MEDICATION:
+1. WHY YOUR CLINICIAN PRESCRIBED THIS MEDICATION:
 ${details.howItWorks}
 
 2. HOW LONG UNTIL YOU FEEL BETTER:
@@ -401,7 +404,7 @@ Reviewing case against APA practice guidelines and Stahl's Prescriber principles
           'Accept': 'application/json'
         },
         body: JSON.stringify({
-          _subject: `PsyNurse Suite Request: ${pendingSpec.title} (${pendingSpec.screen})`,
+          _subject: `PsynapseCDS Request: ${pendingSpec.title} (${pendingSpec.screen})`,
           FeedbackType: 'Co-Pilot Clinical Specification',
           ScreenContext: pendingSpec.screen,
           ProviderNotes: pendingSpec.fullFormattedNote,
@@ -1394,7 +1397,7 @@ ASSESSMENT & PLAN: Dx: Adult ADHD. Plan: Start Adderall XR 20mg...`}
                 <Bot className="w-4 h-4" />
               </div>
               <div>
-                <h3 className="text-sm font-black text-slate-900">PsyNurse Clinical Preceptor AI</h3>
+                <h3 className="text-sm font-black text-slate-900">Psynapse Clinical Preceptor AI</h3>
                 <p className="text-[11px] text-slate-500">Zero-PHI local session consult. Ask about titration, CYP bottlenecks, or case dilemmas.</p>
               </div>
             </div>
@@ -1411,7 +1414,7 @@ ASSESSMENT & PLAN: Dx: Adult ADHD. Plan: Start Adderall XR 20mg...`}
               return (
                 <div key={idx} className={`flex flex-col ${isUser ? 'items-end' : 'items-start'}`}>
                   <span className="text-[10px] text-slate-400 mb-1 px-1">
-                    {isUser ? 'You (Monica Preder, ARNP)' : 'PsyNurse Preceptor'}
+                    {isUser ? `You (${profile.name || 'Clinician'}${profile.credentials ? ', ' + profile.credentials : ''})` : 'Psynapse Preceptor'}
                   </span>
                   <div
                     className={`max-w-[85%] rounded-2xl p-3.5 text-xs leading-relaxed ${

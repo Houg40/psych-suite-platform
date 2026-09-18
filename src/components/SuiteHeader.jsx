@@ -15,6 +15,7 @@ import {
   Settings,
   Home
 } from 'lucide-react';
+import { useProvider } from '../context/ProviderContext';
 
 export default function SuiteHeader({ 
   currentModule, 
@@ -32,6 +33,7 @@ export default function SuiteHeader({
   onOpenSettings = () => {},
   onViewLanding = () => {}
 }) {
+  const { profile } = useProvider();
   const [deferredPrompt, setDeferredPrompt] = useState(null);
   const [isInstallable, setIsInstallable] = useState(false);
   const [isInstalled, setIsInstalled] = useState(false);
@@ -65,7 +67,7 @@ export default function SuiteHeader({
 
   const handleInstallClick = async () => {
     if (!deferredPrompt) {
-      alert("To install PsyNurse Clinical Suite on your desktop, click the Install icon (computer screen with down arrow) in your browser's address bar!");
+      alert("To install PsynapseCDS on your desktop, click the Install icon (computer screen with down arrow) in your browser's address bar!");
       return;
     }
     deferredPrompt.prompt();
@@ -86,18 +88,24 @@ export default function SuiteHeader({
           
           {/* Brand Identity */}
           <div className="flex items-center gap-3 flex-shrink-0">
-            <div className="w-11 h-11 rounded-2xl bg-white p-1 shadow-md border border-teal-500/40 flex-shrink-0 flex items-center justify-center">
-              <img 
-                src="./brand-logo.png" 
-                alt="PsyNurse Suite Logo" 
-                className="w-full h-full object-contain"
-              />
+            <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-teal-500 via-teal-600 to-cyan-600 p-2 shadow-md border border-teal-400/40 flex-shrink-0 flex items-center justify-center text-white">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+                <circle cx="12" cy="12" r="3" fill="currentColor" fillOpacity="0.25" />
+                <path d="M12 3v6" />
+                <path d="M12 15v6" />
+                <path d="M3 12h6" />
+                <path d="M15 12h6" />
+                <circle cx="12" cy="3" r="1.5" fill="currentColor" />
+                <circle cx="12" cy="21" r="1.5" fill="currentColor" />
+                <circle cx="3" cy="12" r="1.5" fill="currentColor" />
+                <circle cx="21" cy="12" r="1.5" fill="currentColor" />
+              </svg>
             </div>
             
             <div>
               <div className="flex items-center gap-2">
                 <span className="font-black text-white text-base tracking-tight">
-                  PsyNurse Clinical Suite
+                  Psynapse<span className="text-teal-400 font-black ml-0.5">CDS</span>
                 </span>
                 <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-teal-950 text-teal-300 border border-teal-800">
                   <ShieldCheck className="w-3 h-3 text-teal-400" />
@@ -105,7 +113,7 @@ export default function SuiteHeader({
                 </span>
               </div>
               <p className="text-[11px] text-slate-400 font-medium">
-                Unified Psychiatric Practice &amp; Simulation Platform • Monica Preder, ARNP
+                {profile.practiceName ? `${profile.practiceName} • ` : ''}Precision Psychiatric Decision Support • {profile.name}{profile.credentials ? `, ${profile.credentials}` : ''}
               </p>
             </div>
           </div>
@@ -148,7 +156,7 @@ export default function SuiteHeader({
               <button
                 onClick={handleInstallClick}
                 className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-teal-500/10 hover:bg-teal-500/20 text-teal-300 border border-teal-500/30 text-xs font-bold transition-all"
-                title="Install PsyNurse Clinical Suite as a standalone desktop app"
+                title="Install PsynapseCDS as a standalone desktop app"
               >
                 <Download className="w-3.5 h-3.5 text-teal-400" />
                 <span className="hidden sm:inline">Install App</span>
@@ -165,7 +173,7 @@ export default function SuiteHeader({
             <button
               onClick={onViewLanding}
               className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 text-xs font-semibold transition-all cursor-pointer"
-              title="Return to PsychSuite Platform Overview & Pricing"
+              title="Return to PsynapseCDS Overview & Pricing"
             >
               <Home className="w-3.5 h-3.5 text-slate-400" />
               <span className="hidden sm:inline">Overview</span>
@@ -197,7 +205,7 @@ export default function SuiteHeader({
                   onClick={checkForUpdates}
                   disabled={isChecking}
                   className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-slate-800/80 hover:bg-slate-700/80 text-slate-300 hover:text-white border border-slate-700/70 text-xs font-semibold transition-all cursor-pointer"
-                  title="Check for PsyNurse Clinical Suite updates"
+                  title="Check for PsynapseCDS updates"
                 >
                   <RefreshCw className={`w-3.5 h-3.5 text-slate-400 ${isChecking ? 'animate-spin text-teal-400' : ''}`} />
                   <span className="hidden sm:inline">

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowLeftRight, AlertCircle, Clipboard, Check, Sparkles, Calendar, ShieldAlert, Printer, Info, Activity, BookOpen, ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
+import { useProvider } from '../../../context/ProviderContext';
 
 const TAPER_MEDICATIONS = [
   // SSRIs
@@ -272,6 +273,7 @@ const TAPER_MEDICATIONS = [
 ];
 
 export default function CrossTaperCalculator() {
+  const { profile } = useProvider();
   const [currentMedId, setCurrentMedId] = useState('sertraline');
   const [currentDose, setCurrentDose] = useState('100 mg');
   const [targetMedId, setTargetMedId] = useState('duloxetine');
@@ -1497,13 +1499,13 @@ export default function CrossTaperCalculator() {
             <div className="flex items-center gap-3">
               <img 
                 src="./icon-192.png" 
-                alt="PsyNurse Clinic Logo" 
+                alt="PsynapseCDS Platform Logo" 
                 className="w-12 h-12 object-contain" 
               />
               <div>
-                <h1 className="text-xl font-black text-slate-900 tracking-tight">PSYCHIATRIC NURSE PRACTITIONER SERVICES</h1>
-                <p className="text-xs font-bold text-teal-800">Monica Preder, ARNP, PMHNP-BC • Board Certified Psychiatric Nurse Practitioner</p>
-                <p className="text-[10px] text-slate-500">Telehealth Practice: Washington State • Web: psychiatristnurse.com</p>
+                <h1 className="text-xl font-black text-slate-900 tracking-tight">{profile.practiceName?.toUpperCase() || 'PSYCHIATRIC PRACTICE & CLINICAL SERVICES'}</h1>
+                <p className="text-xs font-bold text-teal-800">{profile.name}{profile.credentials ? `, ${profile.credentials}` : ''}</p>
+                <p className="text-[10px] text-slate-500">Practice State: {profile.state || 'Licensed'} • Electronic Decision Support (PsynapseCDS)</p>
               </div>
             </div>
             <div className="text-right text-[11px] text-slate-600">
@@ -1607,9 +1609,9 @@ export default function CrossTaperCalculator() {
         <div className="hidden print:block pt-6 mt-6 border-t border-slate-300 text-xs text-slate-600">
           <div className="flex justify-between items-end">
             <div>
-              <p className="font-bold text-slate-900">Monica Preder, ARNP, PMHNP-BC</p>
-              <p className="text-[10px]">Licensed Psychiatric Mental Health Nurse Practitioner</p>
-              <p className="text-[10px]">Questions? Contact through the patient portal or phone.</p>
+              <p className="font-bold text-slate-900">{profile.name}{profile.credentials ? `, ${profile.credentials}` : ''}</p>
+              <p className="text-[10px]">{profile.practiceName || 'Psychiatric Services'}</p>
+              <p className="text-[10px]">Questions? Contact through the clinic portal or phone.</p>
             </div>
             <div className="text-right">
               <div className="border-b border-slate-400 w-48 mb-1"></div>

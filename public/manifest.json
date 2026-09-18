@@ -1,7 +1,7 @@
 {
-  "name": "PsyNurse Clinical Suite",
-  "short_name": "PsyNurse Suite",
-  "description": "Unified psychiatric clinical decision support, psychotropic dosing calculators, and interactive standardized patient flight simulator.",
+  "name": "PsynapseCDS Platform",
+  "short_name": "PsynapseCDS",
+  "description": "Precision psychiatric clinical decision support, titration & cross-taper calculators, and patient flight simulator.",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#020617",

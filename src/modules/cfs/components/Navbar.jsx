@@ -29,7 +29,7 @@ export default function Navbar({ activePhase, setActivePhase, onResetCase, revea
       }
       setDeferredPrompt(null);
     } else {
-      alert("To install PsyNurse CFS onto your desktop or taskbar, click the 'Install App' monitor icon on the right side of your browser's address bar!");
+      alert("To install Psynapse CFS onto your desktop or taskbar, click the 'Install App' monitor icon on the right side of your browser's address bar!");
     }
   };
 
@@ -50,12 +50,12 @@ export default function Navbar({ activePhase, setActivePhase, onResetCase, revea
           <div className="flex items-center gap-3 flex-shrink-0">
             <img
               src="./icon-192.png"
-              alt="PsyNurse CFS"
+              alt="Psynapse CFS"
               className="w-9 h-9 object-contain rounded-xl p-0.5 bg-slate-800 border border-teal-500/40 shadow-xs flex-shrink-0"
             />
             <div className="flex items-center gap-2">
               <span className="font-black text-white text-base tracking-tight whitespace-nowrap">
-                PsyNurse CFS
+                Psynapse CFS
               </span>
               <span className="hidden sm:inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-teal-950/80 text-teal-300 border border-teal-800/80 whitespace-nowrap">
                 Flight Simulator
