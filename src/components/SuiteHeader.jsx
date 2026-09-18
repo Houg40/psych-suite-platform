@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { 
-  Search, 
-  ChevronDown, 
+  Stethoscope, 
+  Compass, 
+  ShieldCheck, 
   Download, 
   RefreshCw, 
   CheckCircle2, 
-  AlertCircle, 
+  AlertCircle,
   Home,
-  ShieldCheck
+  UserCheck
 } from 'lucide-react';
 import { useProvider } from '../context/ProviderContext';
 import PsynapseLogo from './brand/PsynapseLogo';
@@ -26,16 +27,15 @@ export default function SuiteHeader({
   restartToUpdate = () => {},
   currentVersion = '1.1.0',
   onOpenSettings = () => {},
-  onViewLanding = () => {},
-  onSearchQuery
+  onViewLanding = () => {}
 }) {
   const { profile } = useProvider();
   const [deferredPrompt, setDeferredPrompt] = useState(null);
   const [isInstallable, setIsInstallable] = useState(false);
   const [isInstalled, setIsInstalled] = useState(false);
-  const [searchVal, setSearchVal] = useState('');
 
   useEffect(() => {
+    // Check if running in standalone mode
     if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
       setIsInstalled(true);
     }
@@ -75,217 +75,162 @@ export default function SuiteHeader({
     setDeferredPrompt(null);
   };
 
-  const getInitials = (name) => {
-    if (!name) return 'PS';
-    const parts = name.replace(/^(Dr\.|Mr\.|Ms\.|Mrs\.)\s+/i, '').trim().split(/\s+/);
-    if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
-    return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
-  };
-
-  const handleSearchSubmit = (e) => {
-    e.preventDefault();
-    if (!searchVal.trim()) return;
-    const query = searchVal.toLowerCase();
-
-    // Smart contextual router for clinical queries
-    if (query.includes('taper') || query.includes('cross') || query.includes('switch') || query.includes('washout')) {
-      setCurrentModule('cds');
-      setCdsActiveTab('crosstaper');
-    } else if (query.includes('lab') || query.includes('cmp') || query.includes('thyroid') || query.includes('icd')) {
-      setCurrentModule('cds');
-      setCdsActiveTab('labs');
-    } else if (query.includes('qtc') || query.includes('interact') || query.includes('cyp') || query.includes('serotonin')) {
-      setCurrentModule('cds');
-      setCdsActiveTab('interactions');
-    } else if (query.includes('dsm') || query.includes('criteria') || query.includes('adhd') || query.includes('mdd') || query.includes('bipolar')) {
-      setCurrentModule('cds');
-      setCdsActiveTab('checklists');
-    } else if (query.includes('hpi') || query.includes('note') || query.includes('audit')) {
-      setCurrentModule('cds');
-      setCdsActiveTab('hpi');
-    } else if (query.includes('sim') || query.includes('osce') || query.includes('marcus') || query.includes('patient case')) {
-      setCurrentModule('cfs');
-    } else {
-      setCurrentModule('cds');
-      setCdsActiveTab('medications');
-    }
-
-    if (onSearchQuery) {
-      onSearchQuery(searchVal);
-    }
-  };
-
-  const topNavTabs = [
-    {
-      id: 'home',
-      label: 'Home',
-      isActive: currentModule === 'cds' && (cdsActiveTab === 'screeners' || cdsActiveTab === 'dashboard'),
-      onClick: () => {
-        setCurrentModule('cds');
-        setCdsActiveTab('screeners');
-      }
-    },
-    {
-      id: 'evidence',
-      label: 'Evidence & DSM-5',
-      isActive: currentModule === 'cds' && (cdsActiveTab === 'checklists' || cdsActiveTab === 'pathways'),
-      onClick: () => {
-        setCurrentModule('cds');
-        setCdsActiveTab('checklists');
-      }
-    },
-    {
-      id: 'drug-intel',
-      label: 'Drug Intelligence',
-      isActive: currentModule === 'cds' && (cdsActiveTab === 'medications' || cdsActiveTab === 'crosstaper' || cdsActiveTab === 'interactions'),
-      onClick: () => {
-        setCurrentModule('cds');
-        setCdsActiveTab('medications');
-      }
-    },
-    {
-      id: 'patient-context',
-      label: 'Patient Context',
-      isActive: currentModule === 'cds' && (cdsActiveTab === 'hpi' || cdsActiveTab === 'labs'),
-      onClick: () => {
-        setCurrentModule('cds');
-        setCdsActiveTab('hpi');
-      }
-    },
-    {
-      id: 'simulation',
-      label: 'Flight Simulator',
-      isActive: currentModule === 'cfs',
-      badge: 'OSCE',
-      onClick: () => {
-        setCurrentModule('cfs');
-      }
-    }
-  ];
-
   return (
-    <header className="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-xs print:hidden select-none">
-      <div className="w-full px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+    <header className="bg-slate-900 border-b border-slate-800 sticky top-0 z-40 shadow-md print:hidden select-none">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Left: Brand Identity & Subtitle */}
-        <div className="flex items-center gap-6 flex-shrink-0">
-          <div 
-            onClick={onViewLanding}
-            className="cursor-pointer hover:opacity-95 transition-opacity"
-            title="PsynapseCDS Overview"
-          >
-            <PsynapseLogo variant="compact" size="md" />
+        {/* Top Tier: Master Brand, Mode Switcher, & Install Button */}
+        <div className="flex flex-col md:flex-row md:items-center justify-between py-3 md:h-16 gap-3 border-b border-slate-800/80">
+          
+          {/* Brand Identity */}
+          <div className="flex items-center gap-3 flex-shrink-0">
+            <div 
+              onClick={onViewLanding}
+              className="w-11 h-11 rounded-2xl bg-white p-1 shadow-md border border-teal-500/40 flex-shrink-0 flex items-center justify-center cursor-pointer hover:opacity-95 transition-opacity"
+              title="PsynapseCDS Overview"
+            >
+              <img 
+                src="./psynapse-logo.png" 
+                alt="PsynapseCDS Logo" 
+                className="w-full h-full object-contain"
+              />
+            </div>
+            
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="font-black text-white text-base tracking-tight">
+                  Psynapse<span className="text-teal-400 font-black ml-0.5">CDS</span>
+                </span>
+                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-teal-950 text-teal-300 border border-teal-800">
+                  <ShieldCheck className="w-3 h-3 text-teal-400" />
+                  Zero-PHI
+                </span>
+              </div>
+              <p className="text-[11px] text-slate-400 font-medium">
+                {profile.practiceName ? `${profile.practiceName} • ` : ''}Precision Psychiatric Decision Support • {profile.name}{profile.credentials ? `, ${profile.credentials}` : ''}
+              </p>
+            </div>
           </div>
 
-          {/* Understated Top Navigation Links (Teal Underline) */}
-          <nav className="hidden xl:flex items-center gap-6 h-16">
-            {topNavTabs.map((tab) => (
+          {/* Master Suite Switcher & Action Pill */}
+          <div className="flex items-center gap-2.5 flex-wrap">
+            
+            {/* Primary Mode Toggle Segmented Control */}
+            <div className="bg-slate-950 p-1 rounded-xl border border-slate-800 flex items-center shadow-inner">
               <button
-                key={tab.id}
-                onClick={tab.onClick}
-                className={`relative h-16 flex items-center gap-1.5 text-xs font-semibold transition-all cursor-pointer ${
-                  tab.isActive
-                    ? 'text-psynapse-navy font-bold'
-                    : 'text-slate-600 hover:text-psynapse-navy'
+                onClick={() => setCurrentModule('cds')}
+                className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                  currentModule === 'cds'
+                    ? 'bg-teal-600 text-white shadow-sm'
+                    : 'text-slate-400 hover:text-white hover:bg-slate-800/60'
                 }`}
               >
-                <span>{tab.label}</span>
-                {tab.badge && (
-                  <span className="px-1.5 py-0.2 text-[9px] font-extrabold rounded bg-indigo-100 text-indigo-700 uppercase">
-                    {tab.badge}
-                  </span>
-                )}
-                {tab.isActive && (
-                  <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-psynapse-teal rounded-full" />
-                )}
+                <Stethoscope className="w-3.5 h-3.5" />
+                <span>Prescribing &amp; CDS</span>
               </button>
-            ))}
-          </nav>
-        </div>
 
-        {/* Center/Right: Omnibar Clinical Search + Utilities + Profile */}
-        <div className="flex items-center gap-3 min-w-0 justify-end flex-1">
-          
-          {/* Global Search Omnibar */}
-          <form onSubmit={handleSearchSubmit} className="relative flex-1 max-w-xs lg:max-w-md">
-            <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
-            <input
-              type="text"
-              value={searchVal}
-              onChange={(e) => setSearchVal(e.target.value)}
-              placeholder="Search drugs, conditions, or clinical questions..."
-              className="w-full pl-9 pr-4 py-2 rounded-full bg-slate-50 border border-slate-200 text-xs text-slate-800 placeholder:text-slate-400 focus:bg-white focus:border-psynapse-teal focus:ring-2 focus:ring-psynapse-teal/20 focus:outline-none transition-all"
-            />
-          </form>
-
-          {/* Landing / Commercial Overview Button */}
-          <button
-            onClick={onViewLanding}
-            className="hidden sm:flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-all cursor-pointer whitespace-nowrap"
-            title="Return to Product Overview & Pricing"
-          >
-            <Home className="w-4 h-4 text-slate-400" />
-            <span className="hidden md:inline">Overview</span>
-          </button>
-
-          {/* Install Native App (If available) */}
-          {!isInstalled && isInstallable && (
-            <button
-              onClick={handleInstallClick}
-              className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-teal-50 text-psynapse-teal hover:bg-teal-100 text-xs font-bold border border-teal-200 transition-all cursor-pointer whitespace-nowrap"
-              title="Install PsynapseCDS on desktop"
-            >
-              <Download className="w-3.5 h-3.5" />
-              <span className="hidden lg:inline">Install</span>
-            </button>
-          )}
-
-          {/* Update Indicator */}
-          {updateAvailable ? (
-            <button
-              onClick={restartToUpdate}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gradient-to-r from-teal-500 to-emerald-500 hover:from-teal-400 hover:to-emerald-400 text-slate-950 text-xs font-black shadow-xs animate-pulse cursor-pointer whitespace-nowrap"
-              title="A clinical update is ready to activate"
-            >
-              <RefreshCw className="w-3.5 h-3.5 animate-spin" />
-              <span>Update Ready</span>
-            </button>
-          ) : (
-            <button
-              onClick={checkForUpdates}
-              disabled={isChecking}
-              className="p-2 rounded-xl text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-all cursor-pointer"
-              title={`Software v${currentVersion} • Click to check for updates`}
-            >
-              <RefreshCw className={`w-4 h-4 ${isChecking ? 'animate-spin text-psynapse-teal' : ''}`} />
-            </button>
-          )}
-
-          {/* Provider Profile Avatar Pill (Matches Concept Board) */}
-          <div className="h-6 w-px bg-slate-200 mx-1 hidden sm:block" />
-
-          <button
-            onClick={onOpenSettings}
-            className="flex items-center gap-2.5 p-1 sm:pr-2.5 rounded-full hover:bg-slate-100 transition-all cursor-pointer border border-transparent hover:border-slate-200"
-            title="Configure Provider Credentials & Practice Profile"
-          >
-            {/* Circular Avatar */}
-            <div className="w-8 h-8 rounded-full bg-psynapse-navy text-white text-xs font-bold flex items-center justify-center shadow-xs flex-shrink-0">
-              {getInitials(profile.name)}
+              <button
+                onClick={() => setCurrentModule('cfs')}
+                className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                  currentModule === 'cfs'
+                    ? 'bg-indigo-600 text-white shadow-sm'
+                    : 'text-slate-400 hover:text-white hover:bg-slate-800/60'
+                }`}
+              >
+                <Compass className="w-3.5 h-3.5 text-indigo-300" />
+                <span>Flight Simulator (CFS)</span>
+                <span className="px-1.5 py-0.2 bg-indigo-950 text-indigo-300 text-[9px] rounded font-extrabold border border-indigo-700 uppercase">
+                  OSCE
+                </span>
+              </button>
             </div>
 
-            {/* Provider Info */}
-            <div className="hidden sm:flex flex-col text-left leading-tight">
-              <span className="text-xs font-bold text-psynapse-navy truncate max-w-[130px]">
-                {profile.name || 'Prescriber Profile'}
-              </span>
-              <span className="text-[10px] text-slate-500 font-medium truncate max-w-[130px]">
-                {profile.specialty || profile.practiceName || 'Psychiatry'}
-              </span>
-            </div>
+            {/* Desktop Native Install App Button */}
+            {!isInstalled && isInstallable && (
+              <button
+                onClick={handleInstallClick}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-teal-500/10 hover:bg-teal-500/20 text-teal-300 border border-teal-500/30 text-xs font-bold transition-all cursor-pointer"
+                title="Install PsynapseCDS as a standalone desktop app"
+              >
+                <Download className="w-3.5 h-3.5 text-teal-400" />
+                <span className="hidden sm:inline">Install App</span>
+              </button>
+            )}
 
-            <ChevronDown className="w-3.5 h-3.5 text-slate-400 hidden sm:block flex-shrink-0" />
-          </button>
+            {isInstalled && (
+              <span className="hidden sm:inline-flex items-center gap-1 px-2.5 py-1 rounded-xl bg-slate-800 text-slate-300 text-[11px] font-semibold border border-slate-700">
+                ✓ Desktop App
+              </span>
+            )}
+
+            {/* Landing Page Overview Link */}
+            <button
+              onClick={onViewLanding}
+              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 text-xs font-semibold transition-all cursor-pointer"
+              title="Return to PsynapseCDS Overview & Pricing"
+            >
+              <Home className="w-3.5 h-3.5 text-slate-400" />
+              <span className="hidden sm:inline">Overview</span>
+            </button>
+
+            {/* Provider Profile & Settings */}
+            <button
+              onClick={onOpenSettings}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-teal-300 hover:text-teal-200 border border-slate-700 text-xs font-bold transition-all cursor-pointer"
+              title="Configure Provider Credentials, Practice Name, and State"
+            >
+              <UserCheck className="w-3.5 h-3.5 text-teal-400" />
+              <span className="hidden sm:inline">Provider Profile</span>
+            </button>
+
+            {/* Application Update Controls & Restart to Update Button */}
+            {updateAvailable ? (
+              <button
+                onClick={restartToUpdate}
+                className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-500 hover:from-emerald-300 hover:to-teal-300 text-slate-950 font-black text-xs shadow-lg shadow-teal-500/30 animate-pulse transition-all transform active:scale-95 cursor-pointer"
+                title="A new clinical update is ready! Click to restart and activate immediately."
+              >
+                <RefreshCw className="w-3.5 h-3.5 animate-spin text-slate-950" />
+                <span>Restart to Update</span>
+              </button>
+            ) : (
+              <div className="relative flex items-center">
+                <button
+                  onClick={checkForUpdates}
+                  disabled={isChecking}
+                  className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-slate-800/80 hover:bg-slate-700/80 text-slate-300 hover:text-white border border-slate-700/70 text-xs font-semibold transition-all cursor-pointer"
+                  title="Check for PsynapseCDS updates"
+                >
+                  <RefreshCw className={`w-3.5 h-3.5 text-slate-400 ${isChecking ? 'animate-spin text-teal-400' : ''}`} />
+                  <span className="hidden sm:inline">
+                    {isChecking ? 'Checking...' : `Check for Updates (v${currentVersion})`}
+                  </span>
+                </button>
+                
+                {checkResult && (
+                  <div className={`absolute top-full right-0 mt-2 px-3 py-1.5 rounded-lg text-xs font-medium shadow-xl border z-50 whitespace-nowrap animate-in fade-in slide-in-from-top-1 ${
+                    checkResult.type === 'success' 
+                      ? 'bg-emerald-950 text-emerald-200 border-emerald-700' 
+                      : checkResult.type === 'error'
+                      ? 'bg-rose-950 text-rose-200 border-rose-700'
+                      : 'bg-slate-800 text-slate-200 border-slate-700'
+                  }`}>
+                    <div className="flex items-center gap-1.5">
+                      {checkResult.type === 'success' ? (
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                      ) : checkResult.type === 'error' ? (
+                        <AlertCircle className="w-3.5 h-3.5 text-rose-400" />
+                      ) : (
+                        <CheckCircle2 className="w-3.5 h-3.5 text-teal-400" />
+                      )}
+                      <span>{checkResult.message}</span>
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+
+          </div>
 
         </div>
 

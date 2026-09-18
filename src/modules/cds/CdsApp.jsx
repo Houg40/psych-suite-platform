@@ -12,18 +12,11 @@ import PsychotherapyModule from './components/PsychotherapyModule';
 import MiscClinicalInfo from './components/MiscClinicalInfo';
 import StandardLabPanels from './components/StandardLabPanels';
 import FeedbackModal from './components/FeedbackModal';
-import DashboardHeroBanner from '../../components/DashboardHeroBanner';
 
 export default function CdsApp({ activeTab, setActiveTab }) {
   return (
-    <div className="bg-psynapse-canvas min-h-[calc(100vh-8rem)]">
+    <div className="bg-slate-50 min-h-[calc(100vh-8rem)]">
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 print:p-0 print:m-0 print:max-w-none">
-        {activeTab === 'screeners' && (
-          <DashboardHeroBanner 
-            onNewPatientCase={() => setActiveTab('hpi')}
-            onExploreFeatures={() => setActiveTab('medications')}
-          />
-        )}
         {activeTab === 'hpi' && <HpiBuilder setActiveTab={setActiveTab} />}
         {activeTab === 'screeners' && <ScreenerAssessment />}
         {activeTab === 'checklists' && <Dsm5Checklists />}
