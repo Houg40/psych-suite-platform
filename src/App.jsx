@@ -10,6 +10,8 @@ import ProviderSettingsModal from './components/ProviderSettingsModal';
 import { ProviderProvider, useProvider } from './context/ProviderContext';
 import { useAppUpdate } from './hooks/useAppUpdate';
 
+import ClinicalSidebar from './components/ClinicalSidebar';
+
 function SuiteContent() {
   const [appMode, setAppMode] = useState('landing'); // 'landing' | 'suite'
   const [currentModule, setCurrentModule] = useState('cds');
@@ -48,8 +50,8 @@ function SuiteContent() {
 
   // Active Clinical Suite View
   return (
-    <div className="min-h-screen flex flex-col justify-between bg-slate-950">
-      <div>
+    <div className="min-h-screen flex flex-col justify-between bg-psynapse-canvas text-slate-900 font-sans">
+      <div className="flex flex-col flex-1">
         {/* Master Suite Navigation Bar */}
         <SuiteHeader
           currentModule={currentModule}
@@ -68,39 +70,51 @@ function SuiteContent() {
           onViewLanding={() => setAppMode('landing')}
         />
 
-        {/* Dynamic Contextual Sub-Nav */}
-        {currentModule === 'cds' ? (
-          <CdsSubNav activeTab={cdsActiveTab} setActiveTab={setCdsActiveTab} />
-        ) : (
-          <CfsSubNav
-            activePhase={cfsActivePhase}
-            setActivePhase={setCfsActivePhase}
-            onResetCase={() => setCfsActivePhase('interview')}
-            revealedCluesCount={cluesCount.revealed}
-            totalCluesCount={cluesCount.total}
+        {/* Clinical Workspace: Left Sidebar + Main Canvas */}
+        <div className="flex flex-1 min-h-[calc(100vh-4rem)]">
+          {/* Left Clinical Navigation Sidebar */}
+          <ClinicalSidebar
+            currentModule={currentModule}
+            setCurrentModule={setCurrentModule}
+            cdsActiveTab={cdsActiveTab}
+            setCdsActiveTab={setCdsActiveTab}
+            onOpenSettings={() => setIsSettingsOpen(true)}
           />
-        )}
 
-        {/* Active Application Canvas */}
-        {currentModule === 'cds' ? (
-          <CdsApp activeTab={cdsActiveTab} setActiveTab={setCdsActiveTab} />
-        ) : (
-          <CfsApp
-            activePhase={cfsActivePhase}
-            setActivePhase={setCfsActivePhase}
-            onCluesUpdated={handleCluesUpdated}
-          />
-        )}
+          {/* Main Content Workspace Canvas */}
+          <main className="flex-1 min-w-0 bg-psynapse-canvas">
+            {/* If CFS flight simulator, show CFS sub-header */}
+            {currentModule === 'cfs' && (
+              <CfsSubNav
+                activePhase={cfsActivePhase}
+                setActivePhase={setCfsActivePhase}
+                onResetCase={() => setCfsActivePhase('interview')}
+                revealedCluesCount={cluesCount.revealed}
+                totalCluesCount={cluesCount.total}
+              />
+            )}
+
+            {currentModule === 'cds' ? (
+              <CdsApp activeTab={cdsActiveTab} setActiveTab={setCdsActiveTab} />
+            ) : (
+              <CfsApp
+                activePhase={cfsActivePhase}
+                setActivePhase={setCfsActivePhase}
+                onCluesUpdated={handleCluesUpdated}
+              />
+            )}
+          </main>
+        </div>
       </div>
 
       {/* Dynamic Unified Suite Footer */}
-      <footer className="bg-slate-900 border-t border-slate-800 py-6 text-center text-xs text-slate-400 print:hidden">
-        <div className="max-w-7xl mx-auto px-4 space-y-1.5">
-          <p className="font-bold text-slate-300">
-            {profile.practiceName || 'PsynapseCDS Platform'} • Precision Psychiatric Decision Support &amp; Simulation Labs
+      <footer className="bg-white border-t border-slate-200 py-6 text-center text-xs text-slate-500 print:hidden">
+        <div className="max-w-7xl mx-auto px-4 space-y-1">
+          <p className="font-bold text-psynapse-navy">
+            {profile.practiceName ? `${profile.practiceName} • ` : ''}PsynapseCDS Platform • Clinical Decision Support for Psychiatric Prescribers
           </p>
-          <p className="text-slate-500 text-[11px]">
-            Zero-PHI Client-Side Architecture • Configured for {profile.name}, {profile.credentials} • {profile.state} Practice
+          <p className="text-slate-400 text-[11px]">
+            Zero-PHI Client-Side Architecture • Configured for {profile.name}{profile.credentials ? `, ${profile.credentials}` : ''} • Section 3060(a) 21st Century Cures Act Non-Device CDS
           </p>
         </div>
       </footer>

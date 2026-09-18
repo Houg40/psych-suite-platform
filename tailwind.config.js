@@ -7,6 +7,15 @@ export default {
   theme: {
     extend: {
       colors: {
+        psynapse: {
+          navy: '#0B2D4A',
+          teal: '#14B8A6',
+          slate: '#4E6B8A',
+          coolgray: '#CBD5E1',
+          canvas: '#F8FAFC',
+          darknavy: '#061828',
+          lightteal: '#E6FFFA'
+        },
         brand: {
           50: '#f0fdfa',
           100: '#ccfbf1',
@@ -19,6 +28,10 @@ export default {
           800: '#115e59',
           900: '#134e4a',
         }
+      },
+      fontFamily: {
+        serif: ['Georgia', 'Cambria', 'serif'],
+        sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif']
       }
     },
   },

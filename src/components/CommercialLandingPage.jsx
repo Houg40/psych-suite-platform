@@ -18,6 +18,7 @@ import {
   Activity,
   Layers
 } from 'lucide-react';
+import PsynapseLogo from './brand/PsynapseLogo';
 
 export default function CommercialLandingPage({ onLaunchSuite }) {
   return (
@@ -26,15 +27,7 @@ export default function CommercialLandingPage({ onLaunchSuite }) {
       {/* Top Navigation */}
       <header className="border-b border-slate-800/80 bg-slate-950/80 backdrop-blur-md sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2.5">
-            <div className="p-2 bg-gradient-to-br from-teal-500 to-cyan-600 text-white rounded-xl shadow-xs">
-              <HeartPulse className="w-5 h-5" />
-            </div>
-            <div>
-              <span className="font-black text-base text-white tracking-tight">Psynapse</span>
-              <span className="text-teal-400 font-black ml-0.5 text-xs">CDS</span>
-            </div>
-          </div>
+          <PsynapseLogo variant="compact" theme="dark" size="md" />
 
           <div className="flex items-center gap-3">
             <button
@@ -64,8 +57,8 @@ export default function CommercialLandingPage({ onLaunchSuite }) {
             <span>Zero-PHI Client-Side Architecture • HIPAA Liability-Free</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.15]">
-            The Clinical Decision Support &amp; Simulation Suite for <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-cyan-300 to-emerald-400">Psychiatric Prescribers</span>
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-white tracking-tight leading-[1.15]">
+            Evidence-Informed Support for <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-cyan-300 to-emerald-400">Complex Clinical Decisions</span>
           </h1>
 
           <p className="text-sm sm:text-lg text-slate-400 max-w-3xl mx-auto font-normal leading-relaxed">
