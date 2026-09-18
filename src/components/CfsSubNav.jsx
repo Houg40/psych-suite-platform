@@ -17,8 +17,8 @@ export default function CfsSubNav({
 
   return (
     <div className="bg-slate-950 border-b border-slate-800/90 sticky top-16 z-30 shadow-md">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between py-2 overflow-x-auto scrollbar-none gap-4">
+      <div className="w-full px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between py-2 gap-4">
           
           {/* Active Case Context Pill */}
           <div className="flex items-center gap-2">

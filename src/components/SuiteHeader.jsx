@@ -81,15 +81,15 @@ export default function SuiteHeader({
 
   return (
     <header className="bg-slate-900 border-b border-slate-800 sticky top-0 z-40 shadow-md print:hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full px-4 sm:px-6 lg:px-8">
         
-        {/* Top Tier: Master Brand, Mode Switcher, & Install Button */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between py-3 md:h-16 gap-3 border-b border-slate-800/80">
+        {/* Top Tier: Clean 3-Zone Flex Layout */}
+        <div className="flex items-center justify-between h-16 gap-4">
           
-          {/* Brand Identity */}
-          <div className="flex items-center gap-3 flex-shrink-0">
-            <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-teal-500 via-teal-600 to-cyan-600 p-2 shadow-md border border-teal-400/40 flex-shrink-0 flex items-center justify-center text-white">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+          {/* Zone 1: Brand Identity & Precision Subtitle */}
+          <div className="flex items-center gap-3 min-w-0 flex-shrink-0">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-500 via-teal-600 to-cyan-600 p-2 shadow-md border border-teal-400/40 flex items-center justify-center text-white flex-shrink-0">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
                 <circle cx="12" cy="12" r="3" fill="currentColor" fillOpacity="0.25" />
                 <path d="M12 3v6" />
                 <path d="M12 15v6" />
@@ -102,115 +102,124 @@ export default function SuiteHeader({
               </svg>
             </div>
             
-            <div>
+            <div className="min-w-0">
               <div className="flex items-center gap-2">
-                <span className="font-black text-white text-base tracking-tight">
+                <span className="font-black text-white text-base tracking-tight whitespace-nowrap">
                   Psynapse<span className="text-teal-400 font-black ml-0.5">CDS</span>
                 </span>
-                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-teal-950 text-teal-300 border border-teal-800">
+                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-teal-950 text-teal-300 border border-teal-800 flex-shrink-0">
                   <ShieldCheck className="w-3 h-3 text-teal-400" />
                   Zero-PHI
                 </span>
               </div>
-              <p className="text-[11px] text-slate-400 font-medium">
-                {profile.practiceName ? `${profile.practiceName} • ` : ''}Precision Psychiatric Decision Support • {profile.name}{profile.credentials ? `, ${profile.credentials}` : ''}
+              <p className="text-[11px] text-slate-400 font-medium truncate max-w-[280px] sm:max-w-md lg:max-w-xl">
+                {profile.practiceName ? `${profile.practiceName} • ` : ''}Precision Psychiatric Decision Support &amp; Simulation
               </p>
             </div>
           </div>
 
-          {/* Master Suite Switcher & Action Pill */}
-          <div className="flex items-center gap-2.5 flex-wrap">
+          {/* Zone 2: Central Segmented Mode Switcher */}
+          <div className="hidden md:flex items-center bg-slate-950 p-1 rounded-xl border border-slate-800 shadow-inner flex-shrink-0">
+            <button
+              onClick={() => setCurrentModule('cds')}
+              className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                currentModule === 'cds'
+                  ? 'bg-teal-600 text-white shadow-sm'
+                  : 'text-slate-400 hover:text-white hover:bg-slate-800/60'
+              }`}
+            >
+              <Stethoscope className="w-3.5 h-3.5" />
+              <span>Prescribing &amp; CDS</span>
+            </button>
+
+            <button
+              onClick={() => setCurrentModule('cfs')}
+              className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                currentModule === 'cfs'
+                  ? 'bg-indigo-600 text-white shadow-sm'
+                  : 'text-slate-400 hover:text-white hover:bg-slate-800/60'
+              }`}
+            >
+              <Compass className="w-3.5 h-3.5 text-indigo-300" />
+              <span>Flight Simulator</span>
+              <span className="px-1.5 py-0.2 bg-indigo-950 text-indigo-300 text-[9px] rounded font-extrabold border border-indigo-700 uppercase">
+                OSCE
+              </span>
+            </button>
+          </div>
+
+          {/* Zone 3: Toolbar Actions (Always Single Line) */}
+          <div className="flex items-center gap-2 flex-nowrap flex-shrink-0">
             
-            {/* Primary Mode Toggle Segmented Control */}
-            <div className="bg-slate-950 p-1 rounded-xl border border-slate-800 flex items-center shadow-inner">
+            {/* Mobile Mode Switcher */}
+            <div className="md:hidden flex items-center bg-slate-950 p-0.5 rounded-lg border border-slate-800">
               <button
                 onClick={() => setCurrentModule('cds')}
-                className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all ${
-                  currentModule === 'cds'
-                    ? 'bg-teal-600 text-white shadow-sm'
-                    : 'text-slate-400 hover:text-white hover:bg-slate-800/60'
-                }`}
+                className={`p-1.5 rounded text-xs ${currentModule === 'cds' ? 'bg-teal-600 text-white' : 'text-slate-400'}`}
+                title="Prescribing & CDS"
               >
                 <Stethoscope className="w-3.5 h-3.5" />
-                <span>Prescribing &amp; CDS</span>
               </button>
-
               <button
                 onClick={() => setCurrentModule('cfs')}
-                className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all ${
-                  currentModule === 'cfs'
-                    ? 'bg-indigo-600 text-white shadow-sm'
-                    : 'text-slate-400 hover:text-white hover:bg-slate-800/60'
-                }`}
+                className={`p-1.5 rounded text-xs ${currentModule === 'cfs' ? 'bg-indigo-600 text-white' : 'text-slate-400'}`}
+                title="Flight Simulator"
               >
-                <Compass className="w-3.5 h-3.5 text-indigo-300" />
-                <span>Flight Simulator (CFS)</span>
-                <span className="px-1.5 py-0.2 bg-indigo-950 text-indigo-300 text-[9px] rounded font-extrabold border border-indigo-700 uppercase">
-                  OSCE
-                </span>
+                <Compass className="w-3.5 h-3.5" />
               </button>
             </div>
-
-            {/* Desktop Native Install App Button */}
-            {!isInstalled && (
-              <button
-                onClick={handleInstallClick}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-teal-500/10 hover:bg-teal-500/20 text-teal-300 border border-teal-500/30 text-xs font-bold transition-all"
-                title="Install PsynapseCDS as a standalone desktop app"
-              >
-                <Download className="w-3.5 h-3.5 text-teal-400" />
-                <span className="hidden sm:inline">Install App</span>
-              </button>
-            )}
-
-            {isInstalled && (
-              <span className="hidden sm:inline-flex items-center gap-1 px-2.5 py-1 rounded-xl bg-slate-800 text-slate-300 text-[11px] font-semibold border border-slate-700">
-                ✓ Desktop App
-              </span>
-            )}
-
-            {/* Landing Page Overview Link */}
-            <button
-              onClick={onViewLanding}
-              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 text-xs font-semibold transition-all cursor-pointer"
-              title="Return to PsynapseCDS Overview & Pricing"
-            >
-              <Home className="w-3.5 h-3.5 text-slate-400" />
-              <span className="hidden sm:inline">Overview</span>
-            </button>
 
             {/* Provider Profile & Settings */}
             <button
               onClick={onOpenSettings}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-teal-300 hover:text-teal-200 border border-slate-700 text-xs font-bold transition-all cursor-pointer"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-teal-300 hover:text-teal-200 border border-slate-700 text-xs font-bold transition-all cursor-pointer whitespace-nowrap shadow-xs"
               title="Configure Provider Credentials, Practice Name, and State"
             >
               <UserCheck className="w-3.5 h-3.5 text-teal-400" />
-              <span className="hidden sm:inline">Provider Profile</span>
+              <span className="hidden sm:inline">{profile.name || 'Provider Profile'}</span>
             </button>
 
-            {/* Application Update Controls & Restart to Update Button */}
+            {/* Landing Page Overview Link */}
+            <button
+              onClick={onViewLanding}
+              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 text-xs font-semibold transition-all cursor-pointer whitespace-nowrap"
+              title="Return to PsynapseCDS Overview & Pricing"
+            >
+              <Home className="w-3.5 h-3.5 text-slate-400" />
+              <span className="hidden lg:inline">Overview</span>
+            </button>
+
+            {/* Desktop Native Install App Button */}
+            {!isInstalled && isInstallable && (
+              <button
+                onClick={handleInstallClick}
+                className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-teal-500/10 hover:bg-teal-500/20 text-teal-300 border border-teal-500/30 text-xs font-bold transition-all whitespace-nowrap cursor-pointer"
+                title="Install PsynapseCDS as a standalone desktop app"
+              >
+                <Download className="w-3.5 h-3.5 text-teal-400" />
+                <span className="hidden xl:inline">Install</span>
+              </button>
+            )}
+
+            {/* Application Update Controls */}
             {updateAvailable ? (
               <button
                 onClick={restartToUpdate}
-                className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-500 hover:from-emerald-300 hover:to-teal-300 text-slate-950 font-black text-xs shadow-lg shadow-teal-500/30 animate-pulse transition-all transform active:scale-95 cursor-pointer"
-                title="A new clinical update is ready! Click to restart and activate immediately."
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-500 hover:from-emerald-300 hover:to-teal-300 text-slate-950 font-black text-xs shadow-md shadow-teal-500/30 animate-pulse transition-all cursor-pointer whitespace-nowrap"
+                title="A new clinical update is ready! Click to restart."
               >
                 <RefreshCw className="w-3.5 h-3.5 animate-spin text-slate-950" />
-                <span>Restart to Update</span>
+                <span>Update Ready</span>
               </button>
             ) : (
               <div className="relative flex items-center">
                 <button
                   onClick={checkForUpdates}
                   disabled={isChecking}
-                  className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-slate-800/80 hover:bg-slate-700/80 text-slate-300 hover:text-white border border-slate-700/70 text-xs font-semibold transition-all cursor-pointer"
-                  title="Check for PsynapseCDS updates"
+                  className="p-2 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-400 hover:text-slate-200 border border-slate-700/70 text-xs transition-all cursor-pointer"
+                  title={`Check for Updates (v${currentVersion})`}
                 >
-                  <RefreshCw className={`w-3.5 h-3.5 text-slate-400 ${isChecking ? 'animate-spin text-teal-400' : ''}`} />
-                  <span className="hidden sm:inline">
-                    {isChecking ? 'Checking...' : `Check for Updates (v${currentVersion})`}
-                  </span>
+                  <RefreshCw className={`w-3.5 h-3.5 ${isChecking ? 'animate-spin text-teal-400' : ''}`} />
                 </button>
                 
                 {checkResult && (

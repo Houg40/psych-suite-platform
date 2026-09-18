@@ -19,16 +19,16 @@ export default function CdsSubNav({ activeTab, setActiveTab }) {
 
   return (
     <div className="bg-white border-b border-slate-200 sticky top-16 z-30 shadow-xs">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between py-2 overflow-x-auto scrollbar-none gap-4">
+      <div className="w-full px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between py-2 gap-4">
           
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 flex-shrink-0">
             <span className="text-xs font-black uppercase tracking-wider text-teal-800 bg-teal-50 px-2.5 py-1 rounded-md border border-teal-200/80 whitespace-nowrap">
               Clinical Decision Support (CDS)
             </span>
           </div>
 
-          <nav className="flex items-center gap-1.5 overflow-x-auto scrollbar-none py-0.5">
+          <nav className="flex items-center gap-1.5 overflow-x-auto scrollbar-none no-scrollbar py-0.5 min-w-0">
             {navItems.map((item) => {
               const Icon = item.icon;
               const isActive = activeTab === item.id;
@@ -36,7 +36,7 @@ export default function CdsSubNav({ activeTab, setActiveTab }) {
                 <button
                   key={item.id}
                   onClick={() => setActiveTab(item.id)}
-                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-all ${
+                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-all cursor-pointer flex-shrink-0 ${
                     isActive
                       ? 'bg-teal-600 text-white shadow-xs font-bold'
                       : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
