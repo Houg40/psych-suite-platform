@@ -8,9 +8,20 @@
     <meta name="theme-color" content="#0d9488" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PsynapseCDS | Precision Psychiatric Clinical Decision Support &amp; Simulation</title>
-    <meta name="description" content="Precision psychiatric clinical decision support, titration and cross-taper engines, DSM-5 HPI builder, standard lab panels, and patient simulation for psychiatric prescribers." />
+    <script>
+      // Clear stale service workers and cache on localhost during development
+      if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            for (var i = 0; i < registrations.length; i++) {
+              registrations[i].unregister();
+            }
+          });
+        }
+      }
+    </script>
   </head>
-  <body class="bg-slate-950 text-slate-100 antialiased min-h-screen">
+  <body class="bg-slate-50 text-slate-900 antialiased min-h-screen font-sans">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

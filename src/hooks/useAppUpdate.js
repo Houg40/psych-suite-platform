@@ -18,6 +18,23 @@ export function useAppUpdate() {
   useEffect(() => {
     if (!('serviceWorker' in navigator)) return;
 
+    // In local development mode, unregister any service workers and clear cache to ensure instant live reloads
+    if (import.meta.env.DEV) {
+      navigator.serviceWorker.getRegistrations().then((registrations) => {
+        for (const reg of registrations) {
+          reg.unregister();
+        }
+      });
+      if ('caches' in window) {
+        caches.keys().then((keys) => {
+          for (const key of keys) {
+            caches.delete(key);
+          }
+        });
+      }
+      return;
+    }
+
     // Prevent infinite reload loops when controller changes
     const onControllerChange = () => {
       if (refreshingRef.current) return;
@@ -26,7 +43,7 @@ export function useAppUpdate() {
     };
     navigator.serviceWorker.addEventListener('controllerchange', onControllerChange);
 
-    // Register service worker
+    // Register service worker (Production only)
     navigator.serviceWorker.register('./sw.js')
       .then((registration) => {
         registrationRef.current = registration;
