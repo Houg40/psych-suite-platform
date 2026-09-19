@@ -31,42 +31,47 @@ export default function PsynapseAppIcon({
           className="w-full h-full object-contain rounded-xl transition-transform duration-300"
         />
 
-        {/* Active Neural Synaptic Firing Circuit */}
+        {/* Active Neural Synaptic Firing Circuit (Top-Left Origin -> Outward) */}
         {animated && (
           <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-xl">
-            {/* Node 1 (Lower-Left): Delicate Expanding Wave & Pinpoint Core */}
+            {/* Origin Node (Top-Left): Initiates Impulse */}
             <div 
-              className="absolute w-3 h-3 rounded-full border border-teal-400/80 bg-teal-400/20 animate-node-ping-1 shadow-[0_0_4px_#14B8A6]"
-              style={{ left: '32%', top: '64.5%' }}
-            />
-            <div 
-              className="absolute w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_6px_#14B8A6,0_0_2px_#ffffff] animate-node-flash-1"
-              style={{ left: '32%', top: '64.5%' }}
-            />
-
-            {/* Node 2 (Upper-Left): Delicate Expanding Wave & Pinpoint Core */}
-            <div 
-              className="absolute w-3 h-3 rounded-full border border-teal-400/80 bg-teal-400/20 animate-node-ping-2 shadow-[0_0_4px_#14B8A6]"
+              className="absolute w-3 h-3 rounded-full border border-teal-400/80 bg-teal-400/20 animate-node-ping-origin shadow-[0_0_4px_#14B8A6]"
               style={{ left: '32%', top: '41%' }}
             />
             <div 
-              className="absolute w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_6px_#14B8A6,0_0_2px_#ffffff] animate-node-flash-2"
+              className="absolute w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_6px_#14B8A6,0_0_2px_#ffffff] animate-node-flash-origin"
               style={{ left: '32%', top: '41%' }}
             />
 
-            {/* Node 3 (Right): Delicate Expanding Wave & Pinpoint Core */}
+            {/* Traveling Electrical Spark: Top-Left -> DOWN to Bottom Node */}
             <div 
-              className="absolute w-3 h-3 rounded-full border border-cyan-300/80 bg-teal-400/20 animate-node-ping-3 shadow-[0_0_4px_#38bdf8]"
-              style={{ left: '57.1%', top: '42.5%' }}
-            />
-            <div 
-              className="absolute w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_7px_#38bdf8,0_0_2px_#ffffff] animate-node-flash-3"
-              style={{ left: '57.1%', top: '42.5%' }}
+              className="absolute w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_6px_#2dd4bf,0_0_10px_#38bdf8] animate-spark-down"
             />
 
-            {/* Traveling Electrical Nerve Impulse (Pinpoint Spark) */}
+            {/* Traveling Electrical Spark: Top-Left -> RIGHT to Right Node */}
             <div 
-              className="absolute w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_6px_#2dd4bf,0_0_10px_#38bdf8] animate-spark-travel"
+              className="absolute w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_6px_#2dd4bf,0_0_10px_#38bdf8] animate-spark-right"
+            />
+
+            {/* Terminal Node 1 (Lower-Left): Receives Downward Spark */}
+            <div 
+              className="absolute w-3 h-3 rounded-full border border-teal-400/80 bg-teal-400/20 animate-node-ping-bottom shadow-[0_0_4px_#14B8A6]"
+              style={{ left: '32%', top: '64.5%' }}
+            />
+            <div 
+              className="absolute w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_6px_#14B8A6,0_0_2px_#ffffff] animate-node-flash-bottom"
+              style={{ left: '32%', top: '64.5%' }}
+            />
+
+            {/* Terminal Node 2 (Right): Receives Rightward Spark */}
+            <div 
+              className="absolute w-3 h-3 rounded-full border border-cyan-300/80 bg-teal-400/20 animate-node-ping-right shadow-[0_0_4px_#38bdf8]"
+              style={{ left: '57.1%', top: '42.5%' }}
+            />
+            <div 
+              className="absolute w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_7px_#38bdf8,0_0_2px_#ffffff] animate-node-flash-right"
+              style={{ left: '57.1%', top: '42.5%' }}
             />
           </div>
         )}
