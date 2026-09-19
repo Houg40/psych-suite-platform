@@ -236,3 +236,48 @@
 .animate-node-ping-right {
   animation: neural-ping-right 5.2s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
+
+/* ── Ambient Multicolor Quantum Particulate Field ── */
+@keyframes float-mote-1 {
+  0%, 100% { transform: translateY(0px) translateX(0px) scale(0.6); opacity: 0.2; }
+  50% { transform: translateY(-7px) translateX(4px) scale(1.2); opacity: 0.85; }
+}
+
+@keyframes float-mote-2 {
+  0%, 100% { transform: translateY(0px) translateX(0px) scale(0.6); opacity: 0.25; }
+  50% { transform: translateY(-9px) translateX(-4px) scale(1.25); opacity: 0.9; }
+}
+
+@keyframes float-mote-3 {
+  0%, 100% { transform: translateY(0px) translateX(0px) scale(0.5); opacity: 0.15; }
+  50% { transform: translateY(-6px) translateX(5px) scale(1.2); opacity: 0.8; }
+}
+
+@keyframes float-mote-4 {
+  0%, 100% { transform: translateY(0px) translateX(0px) scale(0.6); opacity: 0.2; }
+  50% { transform: translateY(-8px) translateX(-4px) scale(1.25); opacity: 0.85; }
+}
+
+@keyframes float-mote-5 {
+  0%, 100% { transform: translateY(0px) translateX(0px) scale(0.5); opacity: 0.2; }
+  50% { transform: translateY(-7px) translateX(3px) scale(1.2); opacity: 0.75; }
+}
+
+@keyframes float-mote-6 {
+  0%, 100% { transform: translateY(0px) translateX(0px) scale(0.6); opacity: 0.2; }
+  50% { transform: translateY(-8px) translateX(-5px) scale(1.25); opacity: 0.9; }
+}
+
+@keyframes float-mote-7 {
+  0%, 100% { transform: translateY(0px) translateX(0px) scale(0.5); opacity: 0.15; }
+  50% { transform: translateY(-6px) translateX(4px) scale(1.2); opacity: 0.85; }
+}
+
+.animate-mote-1 { animation: float-mote-1 4.5s ease-in-out infinite; }
+.animate-mote-2 { animation: float-mote-2 5.2s ease-in-out infinite 0.7s; }
+.animate-mote-3 { animation: float-mote-3 6.0s ease-in-out infinite 1.4s; }
+.animate-mote-4 { animation: float-mote-4 4.8s ease-in-out infinite 2.1s; }
+.animate-mote-5 { animation: float-mote-5 5.6s ease-in-out infinite 0.4s; }
+.animate-mote-6 { animation: float-mote-6 6.4s ease-in-out infinite 1.8s; }
+.animate-mote-7 { animation: float-mote-7 5.0s ease-in-out infinite 2.6s; }
+
