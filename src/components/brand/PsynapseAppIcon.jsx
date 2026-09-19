@@ -31,47 +31,64 @@ export default function PsynapseAppIcon({
           className="w-full h-full object-contain rounded-xl transition-transform duration-300"
         />
 
-        {/* Active Neural Synaptic Firing Circuit (Top-Left Origin -> Outward) */}
+        {/* Quantum Particle Synaptic Circuit (Popping In & Out of Existence) */}
         {animated && (
           <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-xl">
-            {/* Origin Node (Top-Left): Initiates Impulse in Teal */}
+            {/* Origin Quantum Ping Wave */}
             <div 
-              className="absolute w-2.5 h-2.5 rounded-full border border-teal-400/80 bg-teal-400/20 animate-node-ping-origin"
+              className="absolute w-2.5 h-2.5 rounded-full border border-teal-400/80 bg-teal-400/10 animate-node-ping-origin"
               style={{ left: '32%', top: '41%' }}
             />
+            {/* Q1: Origin Hub Quantum Particle (Teal #14B8A6) */}
             <div 
-              className="absolute w-1 h-1 rounded-full animate-node-flash-origin"
+              className="absolute w-[3px] h-[3px] rounded-full bg-[#14B8A6] shadow-[0_0_4px_#14B8A6] animate-q-origin"
               style={{ left: '32%', top: '41%' }}
             />
 
-            {/* Traveling Electrical Spark: Top-Left (Teal) -> DOWN to Bottom Node (Navy) */}
+            {/* Q2: Downward Axon Bridge Particle (Cyan #2DD4BF) */}
             <div 
-              className="absolute w-1 h-1 rounded-full animate-spark-down"
+              className="absolute w-[3px] h-[3px] rounded-full bg-[#2DD4BF] shadow-[0_0_4px_#2DD4BF] animate-q-mid-down"
+              style={{ left: '32%', top: '52%' }}
             />
 
-            {/* Traveling Electrical Spark: Top-Left (Teal) -> RIGHT to Right Node (Slate Blue) */}
+            {/* Q3: Bottom Terminal Quantum Particle (Deep Teal #0D9488) */}
             <div 
-              className="absolute w-1 h-1 rounded-full animate-spark-right"
-            />
-
-            {/* Terminal Node 1 (Lower-Left): Receives Downward Spark in Deep Teal/Navy */}
-            <div 
-              className="absolute w-2.5 h-2.5 rounded-full border border-teal-500/80 bg-teal-500/20 animate-node-ping-bottom"
+              className="absolute w-[3.5px] h-[3.5px] rounded-full bg-[#0D9488] shadow-[0_0_4px_#0B2D4A] animate-q-bottom"
               style={{ left: '32%', top: '64.5%' }}
             />
+            {/* Bottom Terminal Quantum Ping Wave */}
             <div 
-              className="absolute w-1 h-1 rounded-full animate-node-flash-bottom"
+              className="absolute w-2.5 h-2.5 rounded-full border border-teal-500/80 bg-teal-500/10 animate-node-ping-bottom"
               style={{ left: '32%', top: '64.5%' }}
             />
 
-            {/* Terminal Node 2 (Right): Receives Rightward Spark in Slate Blue */}
+            {/* Q4: Rightward Axon Bridge Particle 1 (Cyan #2DD4BF) */}
             <div 
-              className="absolute w-2.5 h-2.5 rounded-full border border-slate-400/80 bg-[#4E6B8A]/20 animate-node-ping-right"
+              className="absolute w-[3px] h-[3px] rounded-full bg-[#2DD4BF] shadow-[0_0_4px_#2DD4BF] animate-q-mid-right-1"
+              style={{ left: '42%', top: '41.5%' }}
+            />
+
+            {/* Q5: Rightward Axon Bridge Particle 2 (Slate-Teal #4E6B8A) */}
+            <div 
+              className="absolute w-[3px] h-[3px] rounded-full bg-[#4E6B8A] shadow-[0_0_4px_#4E6B8A] animate-q-mid-right-2"
+              style={{ left: '50%', top: '42%' }}
+            />
+
+            {/* Q6: Right Terminal Quantum Particle (Slate Blue #4E6B8A) */}
+            <div 
+              className="absolute w-[3.5px] h-[3.5px] rounded-full bg-[#4E6B8A] shadow-[0_0_5px_#4E6B8A] animate-q-right"
               style={{ left: '57.1%', top: '42.5%' }}
             />
+            {/* Right Terminal Quantum Ping Wave */}
             <div 
-              className="absolute w-1 h-1 rounded-full animate-node-flash-right"
+              className="absolute w-2.5 h-2.5 rounded-full border border-slate-400/80 bg-[#4E6B8A]/10 animate-node-ping-right"
               style={{ left: '57.1%', top: '42.5%' }}
+            />
+
+            {/* Q7: Spontaneous Vacuum Fluctuation Particle (Random pop during rest period) */}
+            <div 
+              className="absolute w-[2.5px] h-[2.5px] rounded-full bg-[#14B8A6] shadow-[0_0_3px_#14B8A6] animate-q-spontaneous"
+              style={{ left: '38%', top: '41.5%' }}
             />
           </div>
         )}

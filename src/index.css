@@ -124,109 +124,69 @@
   }
 }
 
-/* Traveling Spark: Top-Left (Teal) -> DOWN to Bottom Node (Deep Navy) */
-@keyframes spark-travel-down {
-  0% {
-    left: 32%;
-    top: 41%;
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.6);
-    background-color: #14B8A6;
-    box-shadow: 0 0 3px #14B8A6;
-  }
-  4% {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1.0);
-    background-color: #14B8A6;
-    box-shadow: 0 0 4px #14B8A6;
-  }
-  16% {
-    background-color: #0D9488;
-    box-shadow: 0 0 4px #0D9488;
-  }
-  26% {
-    left: 32%;
-    top: 64.5%;
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1.05);
-    background-color: #0B2D4A;
-    box-shadow: 0 0 3px #0D9488;
-  }
-  32% {
-    opacity: 0.7;
-    transform: translate(-50%, -50%) scale(1.0);
-    background-color: #0B2D4A;
-    box-shadow: 0 0 2px #0B2D4A;
-  }
-  36%, 100% {
-    left: 32%;
-    top: 64.5%;
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.8);
-  }
+/* ── Quantum Particle Synaptic Pop Engines ── */
+
+/* Quantum Particle 1: Origin Hub Pop (Top-Left 32%, 41% - Teal) */
+@keyframes quantum-pop-origin {
+  0%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(0); }
+  2% { opacity: 0.95; transform: translate(-50%, -50%) scale(1.25); }
+  5% { opacity: 0.3; transform: translate(-50%, -50%) scale(0.8); }
+  8% { opacity: 0.9; transform: translate(-50%, -50%) scale(1.1); }
+  12%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(0); }
 }
 
-/* Traveling Spark: Top-Left (Teal) -> RIGHT to Right Node (Slate Blue #4E6B8A) */
-@keyframes spark-travel-right {
-  0% {
-    left: 32%;
-    top: 41%;
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.6);
-    background-color: #14B8A6;
-    box-shadow: 0 0 3px #14B8A6;
-  }
-  4% {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1.0);
-    background-color: #14B8A6;
-    box-shadow: 0 0 4px #14B8A6;
-  }
-  16% {
-    background-color: #2DD4BF;
-    box-shadow: 0 0 4px #4E6B8A;
-  }
-  28% {
-    left: 57.1%;
-    top: 42.5%;
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1.05);
-    background-color: #4E6B8A;
-    box-shadow: 0 0 4px #4E6B8A;
-  }
-  34% {
-    opacity: 0.7;
-    transform: translate(-50%, -50%) scale(1.0);
-    background-color: #4E6B8A;
-    box-shadow: 0 0 3px #4E6B8A;
-  }
-  38%, 100% {
-    left: 57.1%;
-    top: 42.5%;
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.8);
-  }
+/* Quantum Particle 2: Mid-Down Path (32%, 52% - Cyan Teal) */
+@keyframes quantum-pop-mid-down {
+  0%, 10% { opacity: 0; transform: translate(-50%, -50%) scale(0); }
+  14% { opacity: 0.95; transform: translate(-50%, -50%) scale(1.2); }
+  17% { opacity: 0.3; transform: translate(-50%, -50%) scale(0.8); }
+  20% { opacity: 0.85; transform: translate(-50%, -50%) scale(1.05); }
+  24%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(0); }
 }
 
-/* Node Flash: Top-Left Initiator (Teal #14B8A6) */
-@keyframes node-flash-origin {
-  0% { opacity: 0.2; transform: translate(-50%, -50%) scale(0.85); background-color: #14B8A6; box-shadow: 0 0 2px #14B8A6; }
-  5% { opacity: 1; transform: translate(-50%, -50%) scale(1.15); background-color: #14B8A6; box-shadow: 0 0 5px #14B8A6; }
-  14%, 100% { opacity: 0.2; transform: translate(-50%, -50%) scale(0.85); background-color: #14B8A6; }
+/* Quantum Particle 3: Bottom Terminal (32%, 64.5% - Deep Navy/Teal) */
+@keyframes quantum-pop-bottom {
+  0%, 22% { opacity: 0; transform: translate(-50%, -50%) scale(0); }
+  26% { opacity: 0.95; transform: translate(-50%, -50%) scale(1.25); }
+  30% { opacity: 0.4; transform: translate(-50%, -50%) scale(0.85); }
+  34% { opacity: 0.9; transform: translate(-50%, -50%) scale(1.1); }
+  38%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(0); }
 }
 
-/* Node Flash: Bottom Receiver (Deep Teal #0D9488) */
-@keyframes node-flash-bottom {
-  0%, 24%, 100% { opacity: 0.2; transform: translate(-50%, -50%) scale(0.85); background-color: #0D9488; box-shadow: 0 0 2px #0D9488; }
-  30% { opacity: 1; transform: translate(-50%, -50%) scale(1.15); background-color: #0D9488; box-shadow: 0 0 5px #0D9488; }
-  38%, 100% { opacity: 0.2; transform: translate(-50%, -50%) scale(0.85); background-color: #0D9488; }
+/* Quantum Particle 4: Mid-Right Path 1 (42%, 41.5% - Cyan) */
+@keyframes quantum-pop-mid-right-1 {
+  0%, 11% { opacity: 0; transform: translate(-50%, -50%) scale(0); }
+  15% { opacity: 0.95; transform: translate(-50%, -50%) scale(1.2); }
+  18% { opacity: 0.35; transform: translate(-50%, -50%) scale(0.8); }
+  22% { opacity: 0.85; transform: translate(-50%, -50%) scale(1.05); }
+  26%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(0); }
 }
 
-/* Node Flash: Right Receiver (Slate Blue #4E6B8A) */
-@keyframes node-flash-right {
-  0%, 26%, 100% { opacity: 0.2; transform: translate(-50%, -50%) scale(0.85); background-color: #4E6B8A; box-shadow: 0 0 2px #4E6B8A; }
-  32% { opacity: 1; transform: translate(-50%, -50%) scale(1.15); background-color: #4E6B8A; box-shadow: 0 0 5px #4E6B8A; }
-  40%, 100% { opacity: 0.2; transform: translate(-50%, -50%) scale(0.85); background-color: #4E6B8A; }
+/* Quantum Particle 5: Mid-Right Path 2 (50%, 42% - Slate Blue) */
+@keyframes quantum-pop-mid-right-2 {
+  0%, 20% { opacity: 0; transform: translate(-50%, -50%) scale(0); }
+  24% { opacity: 0.95; transform: translate(-50%, -50%) scale(1.2); }
+  27% { opacity: 0.3; transform: translate(-50%, -50%) scale(0.8); }
+  31% { opacity: 0.85; transform: translate(-50%, -50%) scale(1.05); }
+  35%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(0); }
+}
+
+/* Quantum Particle 6: Right Terminal (57.1%, 42.5% - Slate Blue) */
+@keyframes quantum-pop-right {
+  0%, 27% { opacity: 0; transform: translate(-50%, -50%) scale(0); }
+  31% { opacity: 0.95; transform: translate(-50%, -50%) scale(1.25); }
+  35% { opacity: 0.4; transform: translate(-50%, -50%) scale(0.85); }
+  39% { opacity: 0.9; transform: translate(-50%, -50%) scale(1.1); }
+  43%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(0); }
+}
+
+/* Quantum Particle 7: Spontaneous Vacuum Fluctuation Pop (Rest period) */
+@keyframes quantum-pop-spontaneous {
+  0%, 65% { opacity: 0; transform: translate(-50%, -50%) scale(0); }
+  68% { opacity: 0.9; transform: translate(-50%, -50%) scale(1.15); }
+  71% { opacity: 0.25; transform: translate(-50%, -50%) scale(0.75); }
+  74% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.05); }
+  78%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(0); }
 }
 
 .animate-synaptic-glow {
@@ -237,12 +197,32 @@
   animation: synaptic-float 5.0s ease-in-out infinite;
 }
 
-.animate-spark-down {
-  animation: spark-travel-down 5.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+.animate-q-origin {
+  animation: quantum-pop-origin 5.2s ease-in-out infinite;
 }
 
-.animate-spark-right {
-  animation: spark-travel-right 5.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+.animate-q-mid-down {
+  animation: quantum-pop-mid-down 5.2s ease-in-out infinite;
+}
+
+.animate-q-bottom {
+  animation: quantum-pop-bottom 5.2s ease-in-out infinite;
+}
+
+.animate-q-mid-right-1 {
+  animation: quantum-pop-mid-right-1 5.2s ease-in-out infinite;
+}
+
+.animate-q-mid-right-2 {
+  animation: quantum-pop-mid-right-2 5.2s ease-in-out infinite;
+}
+
+.animate-q-right {
+  animation: quantum-pop-right 5.2s ease-in-out infinite;
+}
+
+.animate-q-spontaneous {
+  animation: quantum-pop-spontaneous 5.2s ease-in-out infinite;
 }
 
 .animate-node-ping-origin {
@@ -255,16 +235,4 @@
 
 .animate-node-ping-right {
   animation: neural-ping-right 5.2s cubic-bezier(0, 0, 0.2, 1) infinite;
-}
-
-.animate-node-flash-origin {
-  animation: node-flash-origin 5.2s ease-in-out infinite;
-}
-
-.animate-node-flash-bottom {
-  animation: node-flash-bottom 5.2s ease-in-out infinite;
-}
-
-.animate-node-flash-right {
-  animation: node-flash-right 5.2s ease-in-out infinite;
 }
