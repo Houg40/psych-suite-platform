@@ -62,139 +62,171 @@
 
 /* ── Neural Origin: Top-Left Node (32%, 41%) fires outward ── */
 
-/* Origin Ping Wave (Top-Left) */
+/* Origin Ping Wave (Top-Left Teal) */
 @keyframes neural-ping-origin {
   0% {
     transform: translate(-50%, -50%) scale(0.5);
-    opacity: 0.9;
+    opacity: 0.85;
+    border-color: #14B8A6;
   }
   12% {
-    transform: translate(-50%, -50%) scale(1.6);
-    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1.4);
+    opacity: 0.25;
+    border-color: #14B8A6;
   }
   18%, 100% {
-    transform: translate(-50%, -50%) scale(2.0);
+    transform: translate(-50%, -50%) scale(1.7);
     opacity: 0;
   }
 }
 
-/* Terminal Ping Wave: Bottom Node (32%, 64.5%) */
+/* Terminal Ping Wave: Bottom Node (Deep Teal / Navy) */
 @keyframes neural-ping-bottom {
   0%, 26% {
     transform: translate(-50%, -50%) scale(0.5);
     opacity: 0;
+    border-color: #0D9488;
   }
   28% {
     opacity: 0.85;
+    border-color: #0D9488;
   }
   38% {
-    transform: translate(-50%, -50%) scale(1.6);
-    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1.4);
+    opacity: 0.25;
+    border-color: #0B2D4A;
   }
   44%, 100% {
-    transform: translate(-50%, -50%) scale(2.0);
+    transform: translate(-50%, -50%) scale(1.7);
     opacity: 0;
   }
 }
 
-/* Terminal Ping Wave: Right Node (57.1%, 42.5%) */
+/* Terminal Ping Wave: Right Node (Slate Blue #4E6B8A) */
 @keyframes neural-ping-right {
   0%, 28% {
     transform: translate(-50%, -50%) scale(0.5);
     opacity: 0;
+    border-color: #4E6B8A;
   }
   30% {
     opacity: 0.85;
+    border-color: #4E6B8A;
   }
   40% {
-    transform: translate(-50%, -50%) scale(1.6);
-    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1.4);
+    opacity: 0.25;
+    border-color: #4E6B8A;
   }
   46%, 100% {
-    transform: translate(-50%, -50%) scale(2.0);
+    transform: translate(-50%, -50%) scale(1.7);
     opacity: 0;
   }
 }
 
-/* Traveling Spark: Top-Left -> Down to Bottom Node */
+/* Traveling Spark: Top-Left (Teal) -> DOWN to Bottom Node (Deep Navy) */
 @keyframes spark-travel-down {
   0% {
     left: 32%;
     top: 41%;
     opacity: 0;
     transform: translate(-50%, -50%) scale(0.6);
+    background-color: #14B8A6;
+    box-shadow: 0 0 3px #14B8A6;
   }
   4% {
     opacity: 1;
-    transform: translate(-50%, -50%) scale(1.1);
+    transform: translate(-50%, -50%) scale(1.0);
+    background-color: #14B8A6;
+    box-shadow: 0 0 4px #14B8A6;
+  }
+  16% {
+    background-color: #0D9488;
+    box-shadow: 0 0 4px #0D9488;
   }
   26% {
     left: 32%;
     top: 64.5%;
     opacity: 1;
-    transform: translate(-50%, -50%) scale(1.2);
+    transform: translate(-50%, -50%) scale(1.05);
+    background-color: #0B2D4A;
+    box-shadow: 0 0 3px #0D9488;
   }
   32% {
-    opacity: 0.8;
-    transform: translate(-50%, -50%) scale(1.3);
+    opacity: 0.7;
+    transform: translate(-50%, -50%) scale(1.0);
+    background-color: #0B2D4A;
+    box-shadow: 0 0 2px #0B2D4A;
   }
   36%, 100% {
     left: 32%;
     top: 64.5%;
     opacity: 0;
-    transform: translate(-50%, -50%) scale(1.4);
+    transform: translate(-50%, -50%) scale(0.8);
   }
 }
 
-/* Traveling Spark: Top-Left -> Right to Right Node */
+/* Traveling Spark: Top-Left (Teal) -> RIGHT to Right Node (Slate Blue #4E6B8A) */
 @keyframes spark-travel-right {
   0% {
     left: 32%;
     top: 41%;
     opacity: 0;
     transform: translate(-50%, -50%) scale(0.6);
+    background-color: #14B8A6;
+    box-shadow: 0 0 3px #14B8A6;
   }
   4% {
     opacity: 1;
-    transform: translate(-50%, -50%) scale(1.1);
+    transform: translate(-50%, -50%) scale(1.0);
+    background-color: #14B8A6;
+    box-shadow: 0 0 4px #14B8A6;
+  }
+  16% {
+    background-color: #2DD4BF;
+    box-shadow: 0 0 4px #4E6B8A;
   }
   28% {
     left: 57.1%;
     top: 42.5%;
     opacity: 1;
-    transform: translate(-50%, -50%) scale(1.2);
+    transform: translate(-50%, -50%) scale(1.05);
+    background-color: #4E6B8A;
+    box-shadow: 0 0 4px #4E6B8A;
   }
   34% {
-    opacity: 0.8;
-    transform: translate(-50%, -50%) scale(1.3);
+    opacity: 0.7;
+    transform: translate(-50%, -50%) scale(1.0);
+    background-color: #4E6B8A;
+    box-shadow: 0 0 3px #4E6B8A;
   }
   38%, 100% {
     left: 57.1%;
     top: 42.5%;
     opacity: 0;
-    transform: translate(-50%, -50%) scale(1.4);
+    transform: translate(-50%, -50%) scale(0.8);
   }
 }
 
-/* Node Flash: Top-Left Initiator (Fires at 0%) */
+/* Node Flash: Top-Left Initiator (Teal #14B8A6) */
 @keyframes node-flash-origin {
-  0% { opacity: 0.2; transform: translate(-50%, -50%) scale(0.85); }
-  5% { opacity: 1; transform: translate(-50%, -50%) scale(1.3); }
-  14%, 100% { opacity: 0.2; transform: translate(-50%, -50%) scale(0.85); }
+  0% { opacity: 0.2; transform: translate(-50%, -50%) scale(0.85); background-color: #14B8A6; box-shadow: 0 0 2px #14B8A6; }
+  5% { opacity: 1; transform: translate(-50%, -50%) scale(1.15); background-color: #14B8A6; box-shadow: 0 0 5px #14B8A6; }
+  14%, 100% { opacity: 0.2; transform: translate(-50%, -50%) scale(0.85); background-color: #14B8A6; }
 }
 
-/* Node Flash: Bottom Receiver (Fires at ~28%) */
+/* Node Flash: Bottom Receiver (Deep Teal #0D9488) */
 @keyframes node-flash-bottom {
-  0%, 24%, 100% { opacity: 0.2; transform: translate(-50%, -50%) scale(0.85); }
-  30% { opacity: 1; transform: translate(-50%, -50%) scale(1.25); }
-  38%, 100% { opacity: 0.2; transform: translate(-50%, -50%) scale(0.85); }
+  0%, 24%, 100% { opacity: 0.2; transform: translate(-50%, -50%) scale(0.85); background-color: #0D9488; box-shadow: 0 0 2px #0D9488; }
+  30% { opacity: 1; transform: translate(-50%, -50%) scale(1.15); background-color: #0D9488; box-shadow: 0 0 5px #0D9488; }
+  38%, 100% { opacity: 0.2; transform: translate(-50%, -50%) scale(0.85); background-color: #0D9488; }
 }
 
-/* Node Flash: Right Receiver (Fires at ~30%) */
+/* Node Flash: Right Receiver (Slate Blue #4E6B8A) */
 @keyframes node-flash-right {
-  0%, 26%, 100% { opacity: 0.2; transform: translate(-50%, -50%) scale(0.85); }
-  32% { opacity: 1; transform: translate(-50%, -50%) scale(1.25); }
-  40%, 100% { opacity: 0.2; transform: translate(-50%, -50%) scale(0.85); }
+  0%, 26%, 100% { opacity: 0.2; transform: translate(-50%, -50%) scale(0.85); background-color: #4E6B8A; box-shadow: 0 0 2px #4E6B8A; }
+  32% { opacity: 1; transform: translate(-50%, -50%) scale(1.15); background-color: #4E6B8A; box-shadow: 0 0 5px #4E6B8A; }
+  40%, 100% { opacity: 0.2; transform: translate(-50%, -50%) scale(0.85); background-color: #4E6B8A; }
 }
 
 .animate-synaptic-glow {

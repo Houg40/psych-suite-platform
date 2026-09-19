@@ -34,43 +34,43 @@ export default function PsynapseAppIcon({
         {/* Active Neural Synaptic Firing Circuit (Top-Left Origin -> Outward) */}
         {animated && (
           <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-xl">
-            {/* Origin Node (Top-Left): Initiates Impulse */}
+            {/* Origin Node (Top-Left): Initiates Impulse in Teal */}
             <div 
-              className="absolute w-3 h-3 rounded-full border border-teal-400/80 bg-teal-400/20 animate-node-ping-origin shadow-[0_0_4px_#14B8A6]"
+              className="absolute w-2.5 h-2.5 rounded-full border border-teal-400/80 bg-teal-400/20 animate-node-ping-origin"
               style={{ left: '32%', top: '41%' }}
             />
             <div 
-              className="absolute w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_6px_#14B8A6,0_0_2px_#ffffff] animate-node-flash-origin"
+              className="absolute w-1 h-1 rounded-full animate-node-flash-origin"
               style={{ left: '32%', top: '41%' }}
             />
 
-            {/* Traveling Electrical Spark: Top-Left -> DOWN to Bottom Node */}
+            {/* Traveling Electrical Spark: Top-Left (Teal) -> DOWN to Bottom Node (Navy) */}
             <div 
-              className="absolute w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_6px_#2dd4bf,0_0_10px_#38bdf8] animate-spark-down"
+              className="absolute w-1 h-1 rounded-full animate-spark-down"
             />
 
-            {/* Traveling Electrical Spark: Top-Left -> RIGHT to Right Node */}
+            {/* Traveling Electrical Spark: Top-Left (Teal) -> RIGHT to Right Node (Slate Blue) */}
             <div 
-              className="absolute w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_6px_#2dd4bf,0_0_10px_#38bdf8] animate-spark-right"
+              className="absolute w-1 h-1 rounded-full animate-spark-right"
             />
 
-            {/* Terminal Node 1 (Lower-Left): Receives Downward Spark */}
+            {/* Terminal Node 1 (Lower-Left): Receives Downward Spark in Deep Teal/Navy */}
             <div 
-              className="absolute w-3 h-3 rounded-full border border-teal-400/80 bg-teal-400/20 animate-node-ping-bottom shadow-[0_0_4px_#14B8A6]"
+              className="absolute w-2.5 h-2.5 rounded-full border border-teal-500/80 bg-teal-500/20 animate-node-ping-bottom"
               style={{ left: '32%', top: '64.5%' }}
             />
             <div 
-              className="absolute w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_6px_#14B8A6,0_0_2px_#ffffff] animate-node-flash-bottom"
+              className="absolute w-1 h-1 rounded-full animate-node-flash-bottom"
               style={{ left: '32%', top: '64.5%' }}
             />
 
-            {/* Terminal Node 2 (Right): Receives Rightward Spark */}
+            {/* Terminal Node 2 (Right): Receives Rightward Spark in Slate Blue */}
             <div 
-              className="absolute w-3 h-3 rounded-full border border-cyan-300/80 bg-teal-400/20 animate-node-ping-right shadow-[0_0_4px_#38bdf8]"
+              className="absolute w-2.5 h-2.5 rounded-full border border-slate-400/80 bg-[#4E6B8A]/20 animate-node-ping-right"
               style={{ left: '57.1%', top: '42.5%' }}
             />
             <div 
-              className="absolute w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_7px_#38bdf8,0_0_2px_#ffffff] animate-node-flash-right"
+              className="absolute w-1 h-1 rounded-full animate-node-flash-right"
               style={{ left: '57.1%', top: '42.5%' }}
             />
           </div>
