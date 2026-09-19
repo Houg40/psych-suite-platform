@@ -237,78 +237,159 @@
   animation: neural-ping-right 5.2s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
-/* ── Ambient Multicolor Quantum Particulate Field ── */
-@keyframes float-mote-1 {
-  0%, 100% { transform: translateY(0px) translateX(0px) scale(0.6); opacity: 0.2; }
-  50% { transform: translateY(-7px) translateX(4px) scale(1.2); opacity: 0.85; }
+/* ── Ambient Fire Ember & Flake Dynamics (Updraft & 3D Tumble) ── */
+@keyframes ember-draft-1 {
+  0% {
+    transform: translateY(6px) translateX(0px) rotate(0deg) scale(0.4);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.95;
+    transform: translateY(-4px) translateX(3px) rotate(45deg) scale(1.1);
+  }
+  45% {
+    opacity: 0.6;
+    transform: translateY(-14px) translateX(-2px) rotate(110deg) scale(0.9);
+  }
+  75% {
+    opacity: 0.85;
+    transform: translateY(-24px) translateX(5px) rotate(190deg) scale(1.0);
+  }
+  100% {
+    transform: translateY(-34px) translateX(1px) rotate(280deg) scale(0.2);
+    opacity: 0;
+  }
 }
 
-@keyframes float-mote-2 {
-  0%, 100% { transform: translateY(0px) translateX(0px) scale(0.6); opacity: 0.25; }
-  50% { transform: translateY(-9px) translateX(-4px) scale(1.25); opacity: 0.9; }
+@keyframes ember-draft-2 {
+  0% {
+    transform: translateY(8px) translateX(0px) rotate(10deg) scale(0.35);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.9;
+    transform: translateY(-6px) translateX(-4px) rotate(70deg) scale(1.15);
+  }
+  50% {
+    opacity: 0.55;
+    transform: translateY(-18px) translateX(3px) rotate(160deg) scale(0.85);
+  }
+  80% {
+    opacity: 0.8;
+    transform: translateY(-28px) translateX(-3px) rotate(250deg) scale(0.95);
+  }
+  100% {
+    transform: translateY(-38px) translateX(-1px) rotate(340deg) scale(0.15);
+    opacity: 0;
+  }
 }
 
-@keyframes float-mote-3 {
-  0%, 100% { transform: translateY(0px) translateX(0px) scale(0.5); opacity: 0.15; }
-  50% { transform: translateY(-6px) translateX(5px) scale(1.2); opacity: 0.8; }
+@keyframes ember-draft-3 {
+  0% {
+    transform: translateY(5px) translateX(0px) rotate(0deg) scale(0.5);
+    opacity: 0;
+  }
+  18% {
+    opacity: 1;
+    transform: translateY(-5px) translateX(-3px) rotate(60deg) scale(1.2);
+  }
+  55% {
+    opacity: 0.65;
+    transform: translateY(-15px) translateX(4px) rotate(140deg) scale(0.9);
+  }
+  85% {
+    opacity: 0.75;
+    transform: translateY(-25px) translateX(1px) rotate(220deg) scale(0.7);
+  }
+  100% {
+    transform: translateY(-32px) translateX(-2px) rotate(310deg) scale(0.2);
+    opacity: 0;
+  }
 }
 
-@keyframes float-mote-4 {
-  0%, 100% { transform: translateY(0px) translateX(0px) scale(0.6); opacity: 0.2; }
-  50% { transform: translateY(-8px) translateX(-4px) scale(1.25); opacity: 0.85; }
+@keyframes ember-draft-4 {
+  0% {
+    transform: translateY(6px) translateX(0px) rotate(20deg) scale(0.4);
+    opacity: 0;
+  }
+  22% {
+    opacity: 0.85;
+    transform: translateY(-7px) translateX(5px) rotate(90deg) scale(1.1);
+  }
+  55% {
+    opacity: 0.5;
+    transform: translateY(-20px) translateX(-3px) rotate(180deg) scale(0.85);
+  }
+  80% {
+    opacity: 0.9;
+    transform: translateY(-30px) translateX(4px) rotate(270deg) scale(1.0);
+  }
+  100% {
+    transform: translateY(-42px) translateX(2px) rotate(360deg) scale(0.15);
+    opacity: 0;
+  }
 }
 
-@keyframes float-mote-5 {
-  0%, 100% { transform: translateY(0px) translateX(0px) scale(0.5); opacity: 0.2; }
-  50% { transform: translateY(-7px) translateX(3px) scale(1.2); opacity: 0.75; }
+@keyframes ember-draft-5 {
+  0% {
+    transform: translateY(4px) translateX(0px) rotate(0deg) scale(0.3);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.95;
+    transform: translateY(-6px) translateX(-3px) rotate(80deg) scale(1.2);
+  }
+  60% {
+    opacity: 0.5;
+    transform: translateY(-16px) translateX(2px) rotate(170deg) scale(0.8);
+  }
+  85% {
+    opacity: 0.85;
+    transform: translateY(-26px) translateX(-4px) rotate(250deg) scale(0.9);
+  }
+  100% {
+    transform: translateY(-35px) translateX(-1px) rotate(330deg) scale(0.15);
+    opacity: 0;
+  }
 }
 
-@keyframes float-mote-6 {
-  0%, 100% { transform: translateY(0px) translateX(0px) scale(0.6); opacity: 0.2; }
-  50% { transform: translateY(-8px) translateX(-5px) scale(1.25); opacity: 0.9; }
+@keyframes ember-draft-6 {
+  0% {
+    transform: translateY(8px) translateX(0px) rotate(0deg) scale(0.5);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.9;
+    transform: translateY(-8px) translateX(4px) rotate(60deg) scale(1.15);
+  }
+  50% {
+    opacity: 0.45;
+    transform: translateY(-20px) translateX(-5px) rotate(140deg) scale(0.85);
+  }
+  78% {
+    opacity: 0.8;
+    transform: translateY(-32px) translateX(2px) rotate(230deg) scale(0.95);
+  }
+  100% {
+    transform: translateY(-44px) translateX(-2px) rotate(320deg) scale(0.2);
+    opacity: 0;
+  }
 }
 
-@keyframes float-mote-7 {
-  0%, 100% { transform: translateY(0px) translateX(0px) scale(0.5); opacity: 0.15; }
-  50% { transform: translateY(-6px) translateX(4px) scale(1.2); opacity: 0.85; }
-}
-
-.animate-mote-1 { animation: float-mote-1 4.5s ease-in-out infinite; }
-.animate-mote-2 { animation: float-mote-2 5.2s ease-in-out infinite 0.7s; }
-.animate-mote-3 { animation: float-mote-3 6.0s ease-in-out infinite 1.4s; }
-.animate-mote-4 { animation: float-mote-4 4.8s ease-in-out infinite 2.1s; }
-.animate-mote-5 { animation: float-mote-5 5.6s ease-in-out infinite 0.4s; }
-.animate-mote-6 { animation: float-mote-6 6.4s ease-in-out infinite 1.8s; }
-.animate-mote-7 { animation: float-mote-7 5.0s ease-in-out infinite 2.6s; }
-
-@keyframes float-mote-8 {
-  0%, 100% { transform: translateY(0px) translateX(0px) scale(0.5); opacity: 0.1; }
-  50% { transform: translateY(-11px) translateX(-3px) scale(1.3); opacity: 0.8; }
-}
-
-@keyframes float-mote-9 {
-  0%, 100% { transform: translateY(0px) translateX(0px) scale(0.6); opacity: 0.2; }
-  50% { transform: translateY(-6px) translateX(7px) scale(1.2); opacity: 0.85; }
-}
-
-@keyframes float-mote-10 {
-  0%, 100% { transform: translateY(0px) translateX(0px) scale(0.4); opacity: 0.1; }
-  50% { transform: translateY(-5px) translateX(-4px) scale(1.3); opacity: 0.95; }
-}
-
-@keyframes float-mote-11 {
-  0%, 100% { transform: translateY(0px) translateX(0px) scale(0.6); opacity: 0.15; }
-  50% { transform: translateY(-8px) translateX(-6px) scale(1.25); opacity: 0.8; }
-}
-
-@keyframes float-mote-12 {
-  0%, 100% { transform: translateY(0px) translateX(0px) scale(0.5); opacity: 0.2; }
-  50% { transform: translateY(-12px) translateX(5px) scale(1.35); opacity: 0.9; }
-}
-
-.animate-mote-8 { animation: float-mote-8 6.8s ease-in-out infinite 0.9s; }
-.animate-mote-9 { animation: float-mote-9 5.4s ease-in-out infinite 1.7s; }
-.animate-mote-10 { animation: float-mote-10 3.8s ease-in-out infinite 2.3s; }
-.animate-mote-11 { animation: float-mote-11 6.2s ease-in-out infinite 0.3s; }
-.animate-mote-12 { animation: float-mote-12 7.2s ease-in-out infinite 1.2s; }
+.animate-ember-1 { animation: ember-draft-1 4.2s ease-out infinite; }
+.animate-ember-2 { animation: ember-draft-2 4.8s ease-out infinite 0.6s; }
+.animate-ember-3 { animation: ember-draft-3 3.6s ease-out infinite 1.2s; }
+.animate-ember-4 { animation: ember-draft-4 5.4s ease-out infinite 1.8s; }
+.animate-ember-5 { animation: ember-draft-5 4.0s ease-out infinite 2.5s; }
+.animate-ember-6 { animation: ember-draft-6 5.8s ease-out infinite 0.9s; }
+.animate-ember-7 { animation: ember-draft-1 4.6s ease-out infinite 2.0s; }
+.animate-ember-8 { animation: ember-draft-3 3.9s ease-out infinite 0.4s; }
+.animate-ember-9 { animation: ember-draft-2 5.1s ease-out infinite 2.7s; }
+.animate-ember-10 { animation: ember-draft-4 4.4s ease-out infinite 1.5s; }
+.animate-ember-11 { animation: ember-draft-5 5.6s ease-out infinite 3.1s; }
+.animate-ember-12 { animation: ember-draft-6 4.9s ease-out infinite 2.2s; }
+.animate-ember-13 { animation: ember-draft-1 3.8s ease-out infinite 1.0s; }
+.animate-ember-14 { animation: ember-draft-2 5.3s ease-out infinite 3.4s; }
+.animate-ember-15 { animation: ember-draft-3 4.5s ease-out infinite 2.8s; }
+.animate-ember-16 { animation: ember-draft-5 4.1s ease-out infinite 0.2s; }
 

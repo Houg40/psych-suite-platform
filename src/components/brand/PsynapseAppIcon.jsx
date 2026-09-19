@@ -21,97 +21,93 @@ export default function PsynapseAppIcon({
         <div className="absolute -inset-2 rounded-2xl bg-gradient-to-tr from-teal-500/50 via-teal-400/40 to-teal-500/50 opacity-70 group-hover:opacity-100 blur-lg transition-all duration-500 animate-synaptic-glow pointer-events-none"></div>
       )}
 
-      {/* Ambient Multicolor Quantum Particulate Field (16 Diverse Motes) */}
+      {/* Ambient Fire Ember & Ash Particulate Field (Drafting Upwards with 3D Tumble) */}
       {animated && (
-        <div className="absolute -inset-5 sm:-inset-7 pointer-events-none overflow-visible">
-          {/* ── Top Perimeter Motes ── */}
-          {/* Mote 1: Clinical Teal (Micro-pinpoint 2px) */}
+        <div className="absolute -inset-6 sm:-inset-8 pointer-events-none overflow-visible">
+          {/* ── Flake 1: Elongated Teal Fire Spark (Top-Left) ── */}
           <div 
-            className="absolute w-0.5 h-0.5 rounded-full bg-[#14B8A6] shadow-[0_0_3px_#14B8A6] animate-mote-1" 
-            style={{ top: '6%', left: '16%' }} 
+            className="absolute w-[2px] h-[5px] rounded-[1px_3px_1px_3px] bg-gradient-to-t from-[#0D9488] to-[#14B8A6] shadow-[0_0_4px_#14B8A6] animate-ember-1" 
+            style={{ top: '22%', left: '12%' }} 
           />
-          {/* Mote 2: Mint/Cyan (Soft Orb 6px) */}
+          {/* ── Flake 2: Asymmetrical Cyan Ember Shard (Top Center) ── */}
           <div 
-            className="absolute w-1.5 h-1.5 rounded-full bg-[#5EEAD4] shadow-[0_0_6px_#5EEAD4] animate-mote-7" 
-            style={{ top: '1%', left: '44%' }} 
+            className="absolute w-[4px] h-[3px] rounded-[40%_60%_70%_30%/40%_50%_60%_50%] bg-[#5EEAD4] shadow-[0_0_6px_#5EEAD4] animate-ember-7" 
+            style={{ top: '14%', left: '42%' }} 
           />
-          {/* Mote 3: Vibrant Cyan (Medium 4px) */}
+          {/* ── Flake 3: Diamond Cyan Spark (Top-Right) ── */}
           <div 
-            className="absolute w-1 h-1 rounded-full bg-[#2DD4BF] shadow-[0_0_5px_#2DD4BF] animate-mote-2" 
-            style={{ top: '8%', right: '14%' }} 
+            className="absolute w-[3px] h-[3px] rotate-45 rounded-[1px] bg-[#2DD4BF] shadow-[0_0_5px_#2DD4BF] animate-ember-2" 
+            style={{ top: '18%', right: '16%' }} 
           />
-          {/* Mote 4: Platinum / Cool Slate (Sub-micro 2px) */}
+          {/* ── Flake 4: Micro Ash Fleck (Top Peripheral) ── */}
           <div 
-            className="absolute w-0.5 h-0.5 rounded-full bg-[#CBD5E1] shadow-[0_0_2px_#CBD5E1] animate-mote-10" 
-            style={{ top: '12%', right: '28%' }} 
-          />
-
-          {/* ── Right Perimeter Motes ── */}
-          {/* Mote 5: Slate Blue (Medium 4px) */}
-          <div 
-            className="absolute w-1 h-1 rounded-full bg-[#4E6B8A] shadow-[0_0_4px_#4E6B8A] animate-mote-9" 
-            style={{ top: '32%', right: '4%' }} 
-          />
-          {/* Mote 6: Slate Blue (Prominent Soft Orb 8px with blur) */}
-          <div 
-            className="absolute w-2 h-2 rounded-full bg-[#4E6B8A]/80 shadow-[0_0_7px_#4E6B8A] blur-[0.5px] animate-mote-3" 
-            style={{ top: '54%', right: '1%' }} 
-          />
-          {/* Mote 7: Deep Navy / Teal (Micro 2px) */}
-          <div 
-            className="absolute w-0.5 h-0.5 rounded-full bg-[#0D9488] shadow-[0_0_3px_#0D9488] animate-mote-8" 
-            style={{ top: '72%', right: '6%' }} 
+            className="absolute w-[1.5px] h-[2.5px] rounded-[1px_2px_1px_2px] bg-[#CBD5E1] shadow-[0_0_2px_#CBD5E1] animate-ember-10" 
+            style={{ top: '8%', right: '28%' }} 
           />
 
-          {/* ── Bottom Perimeter Motes ── */}
-          {/* Mote 8: Deep Navy (Medium 4px) */}
+          {/* ── Flake 5: Tilted Slate Blue Cinder (Right Edge) ── */}
           <div 
-            className="absolute w-1 h-1 rounded-full bg-[#0B2D4A] shadow-[0_0_4px_#0D9488] animate-mote-4" 
-            style={{ bottom: '8%', right: '16%' }} 
+            className="absolute w-[4px] h-[2.5px] rounded-[2px_5px_1px_4px] bg-[#4E6B8A] shadow-[0_0_4px_#4E6B8A] animate-ember-9" 
+            style={{ top: '42%', right: '6%' }} 
           />
-          {/* Mote 9: Clinical Teal (Prominent Orb 6px) */}
+          {/* ── Flake 6: Large Organic Ember Flake (Right Perimeter) ── */}
           <div 
-            className="absolute w-1.5 h-1.5 rounded-full bg-[#14B8A6] shadow-[0_0_6px_#14B8A6] animate-mote-12" 
-            style={{ bottom: '3%', right: '38%' }} 
+            className="absolute w-[5px] h-[4px] rounded-[60%_40%_50%_50%/40%_60%_50%_50%] bg-gradient-to-br from-[#4E6B8A] to-[#64748B] shadow-[0_0_6px_#4E6B8A] animate-ember-3" 
+            style={{ top: '62%', right: '2%' }} 
           />
-          {/* Mote 10: Cool Slate (Medium 4px) */}
+          {/* ── Flake 7: Upward Needle Spark (Lower Right) ── */}
           <div 
-            className="absolute w-1 h-1 rounded-full bg-[#94A3B8] shadow-[0_0_4px_#CBD5E1] animate-mote-5" 
-            style={{ bottom: '7%', left: '18%' }} 
-          />
-          {/* Mote 11: Electric Cyan (Micro 2px) */}
-          <div 
-            className="absolute w-0.5 h-0.5 rounded-full bg-[#2DD4BF] shadow-[0_0_3px_#2DD4BF] animate-mote-10" 
-            style={{ bottom: '14%', left: '32%' }} 
+            className="absolute w-[1.5px] h-[4.5px] rounded-full bg-[#0D9488] shadow-[0_0_3px_#0D9488] animate-ember-8" 
+            style={{ top: '78%', right: '10%' }} 
           />
 
-          {/* ── Left Perimeter Motes ── */}
-          {/* Mote 12: Clinical Teal (Medium 4px) */}
+          {/* ── Flake 8: Rough Deep Navy Cinder (Bottom-Right) ── */}
           <div 
-            className="absolute w-1 h-1 rounded-full bg-[#14B8A6] shadow-[0_0_5px_#14B8A6] animate-mote-6" 
-            style={{ top: '64%', left: '4%' }} 
+            className="absolute w-[3.5px] h-[3px] rounded-[1px_4px_2px_5px] bg-[#0B2D4A] shadow-[0_0_3px_#0D9488] animate-ember-4" 
+            style={{ bottom: '16%', right: '20%' }} 
           />
-          {/* Mote 13: Clinical Teal (Soft Bokeh Orb 8px) */}
+          {/* ── Flake 9: Glowing Teal Fire Flake (Bottom Center) ── */}
           <div 
-            className="absolute w-2 h-2 rounded-full bg-[#14B8A6]/75 shadow-[0_0_8px_#14B8A6] blur-[0.5px] animate-mote-11" 
-            style={{ top: '42%', left: '1%' }} 
+            className="absolute w-[5px] h-[3.5px] rounded-[30%_70%_60%_40%/50%_40%_60%_50%] bg-[#14B8A6] shadow-[0_0_7px_#14B8A6] animate-ember-12" 
+            style={{ bottom: '10%', right: '40%' }} 
           />
-          {/* Mote 14: Slate Blue (Micro 2px) */}
+          {/* ── Flake 10: Cool Slate Ash Fleck (Bottom-Left) ── */}
           <div 
-            className="absolute w-0.5 h-0.5 rounded-full bg-[#4E6B8A] shadow-[0_0_3px_#4E6B8A] animate-mote-8" 
-            style={{ top: '24%', left: '5%' }} 
+            className="absolute w-[3px] h-[2px] rounded-[2px_1px_3px_1px] bg-[#94A3B8] shadow-[0_0_3px_#CBD5E1] animate-ember-5" 
+            style={{ bottom: '14%', left: '20%' }} 
+          />
+          {/* ── Flake 11: Electric Cyan Needle Spark (Bottom-Left) ── */}
+          <div 
+            className="absolute w-[1.5px] h-[4px] rounded-full bg-[#2DD4BF] shadow-[0_0_4px_#2DD4BF] animate-ember-11" 
+            style={{ bottom: '22%', left: '32%' }} 
           />
 
-          {/* ── Peripheral Satellite Motes (Distant orbit) ── */}
-          {/* Mote 15: Mint Spark (Distant Top-Left 3px) */}
+          {/* ── Flake 12: Diamond Teal Spark (Left Perimeter) ── */}
           <div 
-            className="absolute w-[3px] h-[3px] rounded-full bg-[#5EEAD4] shadow-[0_0_4px_#5EEAD4] animate-mote-9" 
-            style={{ top: '0%', left: '6%' }} 
+            className="absolute w-[3.5px] h-[3.5px] rotate-45 rounded-[1px] bg-[#14B8A6] shadow-[0_0_5px_#14B8A6] animate-ember-6" 
+            style={{ top: '70%', left: '8%' }} 
           />
-          {/* Mote 16: Cyan Spark (Distant Bottom-Right 3px) */}
+          {/* ── Flake 13: Large Tumbling Fire Cinder (Left Flank) ── */}
           <div 
-            className="absolute w-[3px] h-[3px] rounded-full bg-[#2DD4BF] shadow-[0_0_5px_#2DD4BF] animate-mote-1" 
-            style={{ bottom: '1%', right: '4%' }} 
+            className="absolute w-[5px] h-[4px] rounded-[40%_60%_40%_60%/60%_40%_60%_40%] bg-gradient-to-t from-[#0D9488] to-[#14B8A6] shadow-[0_0_7px_#14B8A6] animate-ember-13" 
+            style={{ top: '48%', left: '2%' }} 
+          />
+          {/* ── Flake 14: Slate Blue Fleck (Upper Left) ── */}
+          <div 
+            className="absolute w-[2.5px] h-[2.5px] rounded-[1px_3px_2px_1px] bg-[#4E6B8A] shadow-[0_0_3px_#4E6B8A] animate-ember-14" 
+            style={{ top: '30%', left: '8%' }} 
+          />
+
+          {/* ── Peripheral Sparks (High thermal draft) ── */}
+          {/* Flake 15: Mint Needle Spark (Distant Updraft) */}
+          <div 
+            className="absolute w-[2px] h-[6px] rounded-full bg-[#5EEAD4] shadow-[0_0_5px_#5EEAD4] animate-ember-15" 
+            style={{ top: '4%', left: '10%' }} 
+          />
+          {/* Flake 16: Cyan Diamond Ash (Distant Updraft) */}
+          <div 
+            className="absolute w-[3px] h-[3px] rotate-45 rounded-[1px] bg-[#2DD4BF] shadow-[0_0_5px_#2DD4BF] animate-ember-16" 
+            style={{ bottom: '4%', right: '8%' }} 
           />
         </div>
       )}
