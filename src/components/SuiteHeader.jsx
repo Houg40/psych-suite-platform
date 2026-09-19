@@ -86,14 +86,20 @@ export default function SuiteHeader({
           <div className="flex items-center gap-3 flex-shrink-0">
             <div 
               onClick={onViewLanding}
-              className="w-11 h-11 rounded-2xl bg-white p-1 shadow-md border border-teal-500/40 flex-shrink-0 flex items-center justify-center cursor-pointer hover:opacity-95 transition-opacity"
+              className="relative group cursor-pointer"
               title="PsynapseCDS Overview"
             >
-              <img 
-                src="./psynapse-emblem.png" 
-                alt="PsynapseCDS Logo" 
-                className="w-full h-full object-contain rounded-xl"
-              />
+              {/* Ambient Synaptic Breathing Aura */}
+              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-teal-500/40 via-teal-400/30 to-teal-500/40 opacity-55 group-hover:opacity-100 blur-md transition-all duration-500 animate-synaptic-glow pointer-events-none"></div>
+
+              {/* Icon Container with Hover Flare */}
+              <div className="relative w-11 h-11 rounded-2xl bg-white p-1 shadow-md border border-teal-500/40 flex-shrink-0 flex items-center justify-center transition-all duration-300 transform group-hover:scale-105 group-hover:border-teal-400 group-hover:shadow-teal-500/30 group-hover:shadow-lg">
+                <img 
+                  src="./psynapse-emblem.png" 
+                  alt="PsynapseCDS Logo" 
+                  className="w-full h-full object-contain rounded-xl transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
             </div>
             
             <div>

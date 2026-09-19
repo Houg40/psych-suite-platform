@@ -36,3 +36,53 @@
     scrollbar-width: none;
   }
 }
+
+/* ── Psynapse Synaptic Animation Engines ── */
+@keyframes synaptic-pulse {
+  0%, 100% {
+    transform: scale(0.96);
+    opacity: 0.35;
+    filter: blur(8px);
+  }
+  50% {
+    transform: scale(1.14);
+    opacity: 0.85;
+    filter: blur(14px);
+  }
+}
+
+@keyframes synaptic-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes synaptic-spark {
+  0% {
+    opacity: 0.2;
+    transform: scale(0.98);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+  100% {
+    opacity: 0.2;
+    transform: scale(0.98);
+  }
+}
+
+.animate-synaptic-glow {
+  animation: synaptic-pulse 3.6s ease-in-out infinite;
+}
+
+.animate-synaptic-float {
+  animation: synaptic-float 4.2s ease-in-out infinite;
+}
+
+.animate-synaptic-spark {
+  animation: synaptic-spark 2.4s ease-in-out infinite;
+}

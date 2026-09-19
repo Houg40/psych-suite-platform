@@ -19,6 +19,7 @@ import {
   Layers
 } from 'lucide-react';
 import PsynapseLogo from './brand/PsynapseLogo';
+import PsynapseAppIcon from './brand/PsynapseAppIcon';
 
 export default function CommercialLandingPage({ onLaunchSuite }) {
   return (
@@ -29,10 +30,16 @@ export default function CommercialLandingPage({ onLaunchSuite }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div 
             onClick={onLaunchSuite}
-            className="cursor-pointer hover:opacity-90 transition-opacity"
+            className="flex items-center gap-3 cursor-pointer group select-none"
             title="PsynapseCDS"
           >
-            <PsynapseLogo variant="compact" size="md" />
+            <PsynapseAppIcon size={38} animated={true} />
+            <div className="flex flex-col">
+              <span className="font-black text-lg tracking-tight text-[#0B2D4A] group-hover:text-teal-700 transition-colors leading-tight">
+                Psynapse<span className="text-[#14B8A6] ml-0.5">CDS</span>
+              </span>
+              <span className="text-[10px] text-[#4E6B8A] font-semibold tracking-wider uppercase">Clinical Decision Suite</span>
+            </div>
           </div>
 
           <div className="flex items-center gap-3">
@@ -54,10 +61,15 @@ export default function CommercialLandingPage({ onLaunchSuite }) {
       </header>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden pt-16 pb-20 sm:pt-24 sm:pb-28 border-b border-[#CBD5E1]/60">
+      <section className="relative overflow-hidden pt-14 pb-20 sm:pt-20 sm:pb-28 border-b border-[#CBD5E1]/60">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(20,184,166,0.12),rgba(248,250,252,0))]"></div>
 
         <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center relative z-10 space-y-6">
+          {/* Floating Animated Hero Emblem */}
+          <div className="flex justify-center pb-2">
+            <PsynapseAppIcon size={84} animated={true} floating={true} onClick={onLaunchSuite} className="cursor-pointer" />
+          </div>
+
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E6FFFA] border border-[#14B8A6]/30 text-[#0f766e] text-xs font-bold shadow-2xs">
             <ShieldCheck className="w-4 h-4 text-[#14B8A6]" />
             <span>Zero-PHI Client-Side Architecture • HIPAA Liability-Free</span>
