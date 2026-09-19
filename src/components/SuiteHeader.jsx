@@ -90,9 +90,9 @@ export default function SuiteHeader({
               title="PsynapseCDS Overview"
             >
               <img 
-                src="./psynapse-logo.png" 
+                src="./psynapse-emblem.png" 
                 alt="PsynapseCDS Logo" 
-                className="w-full h-full object-contain"
+                className="w-full h-full object-contain rounded-xl"
               />
             </div>
             
