@@ -34,39 +34,39 @@ export default function PsynapseAppIcon({
         {/* Active Neural Synaptic Firing Circuit */}
         {animated && (
           <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-xl">
-            {/* Node 1 (Lower-Left): Expanding Wave & Core Flare */}
+            {/* Node 1 (Lower-Left): Delicate Expanding Wave & Pinpoint Core */}
             <div 
-              className="absolute w-5 h-5 rounded-full border-2 border-teal-400 bg-teal-400/30 animate-node-ping-1 shadow-[0_0_8px_#14B8A6]"
+              className="absolute w-3 h-3 rounded-full border border-teal-400/80 bg-teal-400/20 animate-node-ping-1 shadow-[0_0_4px_#14B8A6]"
               style={{ left: '32%', top: '64.5%' }}
             />
             <div 
-              className="absolute w-3 h-3 rounded-full bg-white shadow-[0_0_12px_#14B8A6,0_0_4px_#ffffff] animate-node-flash-1"
+              className="absolute w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_6px_#14B8A6,0_0_2px_#ffffff] animate-node-flash-1"
               style={{ left: '32%', top: '64.5%' }}
             />
 
-            {/* Node 2 (Upper-Left): Expanding Wave & Core Flare */}
+            {/* Node 2 (Upper-Left): Delicate Expanding Wave & Pinpoint Core */}
             <div 
-              className="absolute w-5 h-5 rounded-full border-2 border-teal-400 bg-teal-400/30 animate-node-ping-2 shadow-[0_0_8px_#14B8A6]"
+              className="absolute w-3 h-3 rounded-full border border-teal-400/80 bg-teal-400/20 animate-node-ping-2 shadow-[0_0_4px_#14B8A6]"
               style={{ left: '32%', top: '41%' }}
             />
             <div 
-              className="absolute w-3 h-3 rounded-full bg-white shadow-[0_0_12px_#14B8A6,0_0_4px_#ffffff] animate-node-flash-2"
+              className="absolute w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_6px_#14B8A6,0_0_2px_#ffffff] animate-node-flash-2"
               style={{ left: '32%', top: '41%' }}
             />
 
-            {/* Node 3 (Right): Expanding Wave & Core Flare */}
+            {/* Node 3 (Right): Delicate Expanding Wave & Pinpoint Core */}
             <div 
-              className="absolute w-5 h-5 rounded-full border-2 border-cyan-300 bg-teal-400/30 animate-node-ping-3 shadow-[0_0_10px_#38bdf8]"
+              className="absolute w-3 h-3 rounded-full border border-cyan-300/80 bg-teal-400/20 animate-node-ping-3 shadow-[0_0_4px_#38bdf8]"
               style={{ left: '57.1%', top: '42.5%' }}
             />
             <div 
-              className="absolute w-3.5 h-3.5 rounded-full bg-white shadow-[0_0_14px_#38bdf8,0_0_6px_#ffffff] animate-node-flash-3"
+              className="absolute w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_7px_#38bdf8,0_0_2px_#ffffff] animate-node-flash-3"
               style={{ left: '57.1%', top: '42.5%' }}
             />
 
-            {/* Traveling Electrical Nerve Impulse */}
+            {/* Traveling Electrical Nerve Impulse (Pinpoint Spark) */}
             <div 
-              className="absolute w-2.5 h-2.5 rounded-full bg-white shadow-[0_0_10px_#2dd4bf,0_0_18px_#38bdf8,0_0_4px_#ffffff] animate-spark-travel"
+              className="absolute w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_6px_#2dd4bf,0_0_10px_#38bdf8] animate-spark-travel"
             />
           </div>
         )}
