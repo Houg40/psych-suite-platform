@@ -80,43 +80,43 @@ export default function SuiteHeader({
     <header className="bg-slate-900 border-b border-slate-800 sticky top-0 z-40 shadow-md print:hidden select-none">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Top Tier: Master Brand, Mode Switcher, & Install Button */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between py-3 md:h-16 gap-3 border-b border-slate-800/80">
+        {/* Top Tier: Master Brand, Mode Switcher, & Action Controls */}
+        <div className="flex items-center justify-between h-16 gap-3">
           
           {/* Brand Identity */}
-          <div className="flex items-center gap-3 flex-shrink-0">
+          <div className="flex items-center gap-3 flex-shrink-0 min-w-0">
             <div 
               onClick={onViewLanding}
-              className="cursor-pointer"
+              className="cursor-pointer flex-shrink-0"
               title="PsynapseCDS Overview"
             >
-              <PsynapseAppIcon size={44} animated={true} />
+              <PsynapseAppIcon size={40} animated={true} />
             </div>
             
-            <div>
+            <div className="min-w-0">
               <div className="flex items-center gap-2">
-                <span className="font-black text-white text-base tracking-tight">
+                <span className="font-black text-white text-base tracking-tight whitespace-nowrap">
                   Psynapse<span className="text-teal-400 font-black ml-0.5">CDS</span>
                 </span>
-                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-teal-950 text-teal-300 border border-teal-800">
+                <span className="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-teal-950 text-teal-300 border border-teal-800 whitespace-nowrap">
                   <ShieldCheck className="w-3 h-3 text-teal-400" />
                   Zero-PHI
                 </span>
               </div>
-              <p className="text-[11px] text-slate-400 font-medium">
+              <p className="text-[11px] text-slate-400 font-medium truncate max-w-[180px] sm:max-w-xs md:max-w-sm lg:max-w-md xl:max-w-lg">
                 {profile.practiceName ? `${profile.practiceName} • ` : ''}Precision Psychiatric Decision Support • {profile.name}{profile.credentials ? `, ${profile.credentials}` : ''}
               </p>
             </div>
           </div>
 
-          {/* Master Suite Switcher & Action Pill */}
-          <div className="flex items-center gap-2.5 flex-wrap">
+          {/* Master Suite Switcher & Action Controls */}
+          <div className="flex items-center gap-2 flex-shrink-0">
             
             {/* Primary Mode Toggle Segmented Control */}
-            <div className="bg-slate-950 p-1 rounded-xl border border-slate-800 flex items-center shadow-inner">
+            <div className="bg-slate-950 p-1 rounded-xl border border-slate-800 flex items-center shadow-inner flex-shrink-0">
               <button
                 onClick={() => setCurrentModule('cds')}
-                className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                className={`flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
                   currentModule === 'cds'
                     ? 'bg-teal-600 text-white shadow-sm'
                     : 'text-slate-400 hover:text-white hover:bg-slate-800/60'
@@ -128,104 +128,108 @@ export default function SuiteHeader({
 
               <button
                 onClick={() => setCurrentModule('cfs')}
-                className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                className={`flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
                   currentModule === 'cfs'
                     ? 'bg-indigo-600 text-white shadow-sm'
                     : 'text-slate-400 hover:text-white hover:bg-slate-800/60'
                 }`}
               >
                 <Compass className="w-3.5 h-3.5 text-indigo-300" />
-                <span>Flight Simulator (CFS)</span>
+                <span className="hidden sm:inline">Flight Simulator (CFS)</span>
+                <span className="sm:hidden">CFS</span>
                 <span className="px-1.5 py-0.2 bg-indigo-950 text-indigo-300 text-[9px] rounded font-extrabold border border-indigo-700 uppercase">
                   OSCE
                 </span>
               </button>
             </div>
 
-            {/* Desktop Native Install App Button */}
-            {!isInstalled && isInstallable && (
-              <button
-                onClick={handleInstallClick}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-teal-500/10 hover:bg-teal-500/20 text-teal-300 border border-teal-500/30 text-xs font-bold transition-all cursor-pointer"
-                title="Install PsynapseCDS as a standalone desktop app"
-              >
-                <Download className="w-3.5 h-3.5 text-teal-400" />
-                <span className="hidden sm:inline">Install App</span>
-              </button>
-            )}
-
-            {isInstalled && (
-              <span className="hidden sm:inline-flex items-center gap-1 px-2.5 py-1 rounded-xl bg-slate-800 text-slate-300 text-[11px] font-semibold border border-slate-700">
-                ✓ Desktop App
-              </span>
-            )}
-
-            {/* Landing Page Overview Link */}
-            <button
-              onClick={onViewLanding}
-              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 text-xs font-semibold transition-all cursor-pointer"
-              title="Return to PsynapseCDS Overview & Pricing"
-            >
-              <Home className="w-3.5 h-3.5 text-slate-400" />
-              <span className="hidden sm:inline">Overview</span>
-            </button>
-
-            {/* Provider Profile & Settings */}
-            <button
-              onClick={onOpenSettings}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-teal-300 hover:text-teal-200 border border-slate-700 text-xs font-bold transition-all cursor-pointer"
-              title="Configure Provider Credentials, Practice Name, and State"
-            >
-              <UserCheck className="w-3.5 h-3.5 text-teal-400" />
-              <span className="hidden sm:inline">Provider Profile</span>
-            </button>
-
-            {/* Application Update Controls & Restart to Update Button */}
-            {updateAvailable ? (
-              <button
-                onClick={restartToUpdate}
-                className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-500 hover:from-emerald-300 hover:to-teal-300 text-slate-950 font-black text-xs shadow-lg shadow-teal-500/30 animate-pulse transition-all transform active:scale-95 cursor-pointer"
-                title="A new clinical update is ready! Click to restart and activate immediately."
-              >
-                <RefreshCw className="w-3.5 h-3.5 animate-spin text-slate-950" />
-                <span>Restart to Update</span>
-              </button>
-            ) : (
-              <div className="relative flex items-center">
+            {/* Utility Tools */}
+            <div className="flex items-center gap-1.5 flex-shrink-0">
+              {/* Desktop Native Install App Button */}
+              {!isInstalled && isInstallable && (
                 <button
-                  onClick={checkForUpdates}
-                  disabled={isChecking}
-                  className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-slate-800/80 hover:bg-slate-700/80 text-slate-300 hover:text-white border border-slate-700/70 text-xs font-semibold transition-all cursor-pointer"
-                  title="Check for PsynapseCDS updates"
+                  onClick={handleInstallClick}
+                  className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-teal-500/10 hover:bg-teal-500/20 text-teal-300 border border-teal-500/30 text-xs font-bold transition-all cursor-pointer whitespace-nowrap"
+                  title="Install PsynapseCDS as a standalone desktop app"
                 >
-                  <RefreshCw className={`w-3.5 h-3.5 text-slate-400 ${isChecking ? 'animate-spin text-teal-400' : ''}`} />
-                  <span className="hidden sm:inline">
-                    {isChecking ? 'Checking...' : `Check for Updates (v${currentVersion})`}
-                  </span>
+                  <Download className="w-3.5 h-3.5 text-teal-400" />
+                  <span className="hidden lg:inline">Install</span>
                 </button>
-                
-                {checkResult && (
-                  <div className={`absolute top-full right-0 mt-2 px-3 py-1.5 rounded-lg text-xs font-medium shadow-xl border z-50 whitespace-nowrap animate-in fade-in slide-in-from-top-1 ${
-                    checkResult.type === 'success' 
-                      ? 'bg-emerald-950 text-emerald-200 border-emerald-700' 
-                      : checkResult.type === 'error'
-                      ? 'bg-rose-950 text-rose-200 border-rose-700'
-                      : 'bg-slate-800 text-slate-200 border-slate-700'
-                  }`}>
-                    <div className="flex items-center gap-1.5">
-                      {checkResult.type === 'success' ? (
-                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-                      ) : checkResult.type === 'error' ? (
-                        <AlertCircle className="w-3.5 h-3.5 text-rose-400" />
-                      ) : (
-                        <CheckCircle2 className="w-3.5 h-3.5 text-teal-400" />
-                      )}
-                      <span>{checkResult.message}</span>
+              )}
+
+              {isInstalled && (
+                <span className="hidden xl:inline-flex items-center gap-1 px-2.5 py-1 rounded-xl bg-slate-800 text-slate-300 text-[11px] font-semibold border border-slate-700 whitespace-nowrap">
+                  ✓ Desktop
+                </span>
+              )}
+
+              {/* Landing Page Overview Link */}
+              <button
+                onClick={onViewLanding}
+                className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 text-xs font-semibold transition-all cursor-pointer whitespace-nowrap"
+                title="Return to PsynapseCDS Overview & Pricing"
+              >
+                <Home className="w-3.5 h-3.5 text-slate-400" />
+                <span className="hidden xl:inline">Overview</span>
+              </button>
+
+              {/* Provider Profile & Settings */}
+              <button
+                onClick={onOpenSettings}
+                className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-teal-300 hover:text-teal-200 border border-slate-700 text-xs font-bold transition-all cursor-pointer whitespace-nowrap"
+                title="Configure Provider Credentials, Practice Name, and State"
+              >
+                <UserCheck className="w-3.5 h-3.5 text-teal-400" />
+                <span className="hidden md:inline">Profile</span>
+              </button>
+
+              {/* Application Update Controls */}
+              {updateAvailable ? (
+                <button
+                  onClick={restartToUpdate}
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-500 hover:from-emerald-300 hover:to-teal-300 text-slate-950 font-black text-xs shadow-lg shadow-teal-500/30 animate-pulse transition-all transform active:scale-95 cursor-pointer whitespace-nowrap"
+                  title="A new clinical update is ready! Click to restart and activate immediately."
+                >
+                  <RefreshCw className="w-3.5 h-3.5 animate-spin text-slate-950" />
+                  <span>Update</span>
+                </button>
+              ) : (
+                <div className="relative flex items-center">
+                  <button
+                    onClick={checkForUpdates}
+                    disabled={isChecking}
+                    className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-slate-800/80 hover:bg-slate-700/80 text-slate-300 hover:text-white border border-slate-700/70 text-xs font-semibold transition-all cursor-pointer whitespace-nowrap"
+                    title={`PsynapseCDS v${currentVersion} • Click to check for updates`}
+                  >
+                    <RefreshCw className={`w-3.5 h-3.5 text-slate-400 ${isChecking ? 'animate-spin text-teal-400' : ''}`} />
+                    <span className="font-mono text-[11px] text-slate-400">
+                      {isChecking ? 'Checking...' : `v${currentVersion}`}
+                    </span>
+                  </button>
+                  
+                  {checkResult && (
+                    <div className={`absolute top-full right-0 mt-2 px-3 py-1.5 rounded-lg text-xs font-medium shadow-xl border z-50 whitespace-nowrap animate-in fade-in slide-in-from-top-1 ${
+                      checkResult.type === 'success' 
+                        ? 'bg-emerald-950 text-emerald-200 border-emerald-700' 
+                        : checkResult.type === 'error'
+                        ? 'bg-rose-950 text-rose-200 border-rose-700'
+                        : 'bg-slate-800 text-slate-200 border-slate-700'
+                    }`}>
+                      <div className="flex items-center gap-1.5">
+                        {checkResult.type === 'success' ? (
+                          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                        ) : checkResult.type === 'error' ? (
+                          <AlertCircle className="w-3.5 h-3.5 text-rose-400" />
+                        ) : (
+                          <CheckCircle2 className="w-3.5 h-3.5 text-teal-400" />
+                        )}
+                        <span>{checkResult.message}</span>
+                      </div>
                     </div>
-                  </div>
-                )}
-              </div>
-            )}
+                  )}
+                </div>
+              )}
+            </div>
 
           </div>
 
