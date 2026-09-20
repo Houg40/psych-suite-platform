@@ -28,6 +28,8 @@ function SuiteContent() {
   });
   const [isFlightConfigOpen, setIsFlightConfigOpen] = useState(false);
   const [isFlightManualOpen, setIsFlightManualOpen] = useState(false);
+  const [isCdsConsultOpen, setIsCdsConsultOpen] = useState(false);
+  const [cdsConsultTab, setCdsConsultTab] = useState('dsm5');
 
   const { profile } = useProvider();
 
@@ -92,6 +94,10 @@ function SuiteContent() {
             flightConfig={flightConfig}
             onOpenFlightConfig={() => setIsFlightConfigOpen(true)}
             onOpenFlightManual={() => setIsFlightManualOpen(true)}
+            onOpenCdsQuickConsult={(tab = 'dsm5') => {
+              setCdsConsultTab(tab);
+              setIsCdsConsultOpen(true);
+            }}
           />
         )}
 
@@ -109,6 +115,11 @@ function SuiteContent() {
             setIsFlightConfigOpen={setIsFlightConfigOpen}
             isFlightManualOpen={isFlightManualOpen}
             setIsFlightManualOpen={setIsFlightManualOpen}
+            isCdsConsultOpen={isCdsConsultOpen}
+            setIsCdsConsultOpen={setIsCdsConsultOpen}
+            cdsConsultTab={cdsConsultTab}
+            setCdsConsultTab={setCdsConsultTab}
+            onSwitchToFullCds={() => setCurrentModule('cds')}
           />
         )}
       </div>
