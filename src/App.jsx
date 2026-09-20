@@ -17,6 +17,16 @@ function SuiteContent() {
   const [cfsActivePhase, setCfsActivePhase] = useState('interview');
   const [cluesCount, setCluesCount] = useState({ revealed: 0, total: 4 });
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+  const [flightConfig, setFlightConfig] = useState({
+    id: 'outpatient-solo',
+    title: 'Solo Outpatient Practice',
+    subtitle: "Monica's Baseline Reality",
+    setting: 'outpatient',
+    volume: 1,
+    legalStatus: 'Voluntary',
+    friction: 'standard'
+  });
+  const [isFlightConfigOpen, setIsFlightConfigOpen] = useState(false);
 
   const { profile } = useProvider();
 
@@ -78,6 +88,8 @@ function SuiteContent() {
             onResetCase={() => setCfsActivePhase('interview')}
             revealedCluesCount={cluesCount.revealed}
             totalCluesCount={cluesCount.total}
+            flightConfig={flightConfig}
+            onOpenFlightConfig={() => setIsFlightConfigOpen(true)}
           />
         )}
 
@@ -89,6 +101,10 @@ function SuiteContent() {
             activePhase={cfsActivePhase}
             setActivePhase={setCfsActivePhase}
             onCluesUpdated={handleCluesUpdated}
+            flightConfig={flightConfig}
+            setFlightConfig={setFlightConfig}
+            isFlightConfigOpen={isFlightConfigOpen}
+            setIsFlightConfigOpen={setIsFlightConfigOpen}
           />
         )}
       </div>

@@ -86,4 +86,20 @@ for (const comp of components) {
   console.log(`  ✓ Synced component: ${comp}`);
 }
 
+// 3. Sync CFS root modules (CfsApp.jsx and CfsSubNav.jsx)
+console.log(`\n📁 Syncing CFS Simulation Framework...`);
+const srcCfsApp = path.join(MONICA_ROOT, 'src/modules/cfs/CfsApp.jsx');
+const destCfsApp = path.join(PLATFORM_ROOT, 'src/modules/cfs/CfsApp.jsx');
+if (fs.existsSync(srcCfsApp)) {
+  fs.copyFileSync(srcCfsApp, destCfsApp);
+  console.log(`  ✓ Synced file: src/modules/cfs/CfsApp.jsx`);
+}
+
+const srcCfsSubNav = path.join(MONICA_ROOT, 'src/components/CfsSubNav.jsx');
+const destCfsSubNav = path.join(PLATFORM_ROOT, 'src/components/CfsSubNav.jsx');
+if (fs.existsSync(srcCfsSubNav)) {
+  fs.copyFileSync(srcCfsSubNav, destCfsSubNav);
+  console.log(`  ✓ Synced file: src/components/CfsSubNav.jsx`);
+}
+
 console.log('\n✅ Clinical core synchronization completed successfully!');
