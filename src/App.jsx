@@ -27,6 +27,7 @@ function SuiteContent() {
     friction: 'standard'
   });
   const [isFlightConfigOpen, setIsFlightConfigOpen] = useState(false);
+  const [isFlightManualOpen, setIsFlightManualOpen] = useState(false);
 
   const { profile } = useProvider();
 
@@ -90,6 +91,7 @@ function SuiteContent() {
             totalCluesCount={cluesCount.total}
             flightConfig={flightConfig}
             onOpenFlightConfig={() => setIsFlightConfigOpen(true)}
+            onOpenFlightManual={() => setIsFlightManualOpen(true)}
           />
         )}
 
@@ -105,6 +107,8 @@ function SuiteContent() {
             setFlightConfig={setFlightConfig}
             isFlightConfigOpen={isFlightConfigOpen}
             setIsFlightConfigOpen={setIsFlightConfigOpen}
+            isFlightManualOpen={isFlightManualOpen}
+            setIsFlightManualOpen={setIsFlightManualOpen}
           />
         )}
       </div>
